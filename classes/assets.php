@@ -90,7 +90,7 @@ class Assets {
 
         $styles = [
             'pin-master-style' => [
-                'src' =>  PM_ASSETS . '/css/style.css'
+                'src' =>  PM_ASSETS . '/css/style.min.css'
             ],
         ];
 

@@ -289,7 +289,7 @@ $options[]      = array(
   ),
 
 
-array(
+   array(
     'id'      => 'min_image_height',
     'default' => 200,
     'type'    => 'number',
@@ -301,11 +301,21 @@ array(
  )
 );    
 
+
+$options[]      = array(
+  'name'        => 'pro_settings',
+  'title'       => 'Pro Version',
+  'icon'        => 'fa fa-flask',
+  'fields'      => array(
+   array(
+    'type'    => 'subheading',
+    'content' => 'Exciting Feature Coming soon. To Purchase Pro - <a target="_blank" href="https://www.codextune.com/downloads/wp-pin-master-pro/">Click Here</a>',
+  ),
+
+ )
+); 
+
+
 /*=====  End of advance settings  ======*/
-
-
-
-  )
-);
 
 PinMaster::instance( $settings, $options );

@@ -1,5 +1,6 @@
 <?php
 namespace Pin_Master\Classes;
+
 use Elementor\Controls_Manager;
 
 
