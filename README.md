@@ -22,5 +22,4 @@ This is very easy to setup and use plugin, Just Install and Go Pin Master settin
 1. Select/Choose Pinterest Icon
 2. Customize pinterst icon
 3. Upload Custom Pinterest Button image
-4. Own SEO meta description field to insert meta data for pinterest board.
-many more ... 
+4. Own SEO meta description field to insert meta data for pinterest board. many more ...
