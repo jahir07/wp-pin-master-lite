@@ -9,18 +9,18 @@ Pinterest profile widget.
 
 This is very easy to setup and use plugin, Just Install and Go Pin Master settings to get awesome settings option. 
 
-##FREE FEATURES:
-Pin it button for images.
-Pin it button configuration (size, shape).
-Pin it button color customization.
-Pin it button language selection.
-Follow Pinterest button for website.
-Pin board widgets.
-Pinterest profile widget.
+## FREE FEATURES:
+1. Pin it button for images. 
+2. Pin it button configuration (size, shape).
+3. Pin it button color customization.
+4. Pin it button language selection.
+5. Follow Pinterest button for website.
+6. Pin board widgets.
+7. Pinterest profile widget.
 
-##PRO Features: 
-Select/Choose Pinterest Icon
-Customize pinterst icon
-Upload Custom Pinterest Button image
-Own SEO meta description field to insert meta data for pinterest board.
+## PRO Features: 
+1. Select/Choose Pinterest Icon
+2. Customize pinterst icon
+3. Upload Custom Pinterest Button image
+4. Own SEO meta description field to insert meta data for pinterest board.
 many more ... 

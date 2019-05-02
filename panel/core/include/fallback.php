@@ -11,7 +11,7 @@
 if( ! function_exists( 'get_term_meta' ) ) {
   function get_term_meta( $term_id, $key = '', $single = false ) {
 
-    $terms = get_option( 'pm_term_'. $key );
+    $terms = get_option( 'wppml_term_'. $key );
 
     return ( ! empty( $terms[$term_id] ) ) ? $terms[$term_id] : false;
 
@@ -49,11 +49,11 @@ if( ! function_exists( 'update_term_meta' ) ) {
 
     if ( ! empty( $term_id ) || ! empty( $meta_key ) || ! empty( $meta_value ) ) {
 
-      $terms = get_option( 'pm_term_'. $meta_key );
+      $terms = get_option( 'wppml_term_'. $meta_key );
 
       $terms[$term_id] = $meta_value;
 
-      update_option( 'pm_term_'. $meta_key, $terms );
+      update_option( 'wppml_term_'. $meta_key, $terms );
 
     }
 
@@ -74,11 +74,11 @@ if( ! function_exists( 'delete_term_meta' ) ) {
 
     if ( ! empty( $term_id ) || ! empty( $meta_key ) ) {
 
-      $terms = get_option( 'pm_term_'. $meta_key );
+      $terms = get_option( 'wppml_term_'. $meta_key );
 
       unset( $terms[$term_id] );
 
-      update_option( 'pm_term_'. $meta_key, $terms );
+      update_option( 'wppml_term_'. $meta_key, $terms );
 
     }
 

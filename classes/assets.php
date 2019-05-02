@@ -39,7 +39,7 @@ class Assets {
         foreach ( $scripts as $handle => $script ) {
             $deps      = isset( $script['deps'] ) ? $script['deps'] : false;
             $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
-            $version   = isset( $script['version'] ) ? $script['version'] : PM_VERSION;
+            $version   = isset( $script['version'] ) ? $script['version'] : WPPML_VERSION;
 
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
         }
@@ -56,7 +56,7 @@ class Assets {
         foreach ( $styles as $handle => $style ) {
             $deps = isset( $style['deps'] ) ? $style['deps'] : false;
 
-            wp_register_style( $handle, $style['src'], $deps, PM_VERSION );
+            wp_register_style( $handle, $style['src'], $deps, WPPML_VERSION );
         }
     }
 
@@ -71,8 +71,8 @@ class Assets {
         // after dev minified version active for faster load
         $scripts = [
             'pin-master-vendor' => [
-                'src'       => PM_ASSETS . '/js/pin-master.min.js',
-                'version'   => filemtime( PM_DIR . 'assets/js/pin-master.min.js' ),
+                'src'       => WPPML_ASSETS . '/js/pin-master.min.js',
+                'version'   => filemtime( WPPML_DIR . 'assets/js/pin-master.min.js' ),
                 'in_footer' => true
             ],
         ];
@@ -90,7 +90,7 @@ class Assets {
 
         $styles = [
             'pin-master-style' => [
-                'src' =>  PM_ASSETS . '/css/style.min.css'
+                'src' =>  WPPML_ASSETS . '/css/style.min.css'
             ],
         ];
 

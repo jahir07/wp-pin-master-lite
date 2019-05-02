@@ -7,14 +7,14 @@
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_add_element' ) ) {
-  function pm_add_element( $field = array(), $value = '', $unique = '', $where = '', $parent = '' ) {
+if ( ! function_exists( 'wppml_add_element' ) ) {
+  function wppml_add_element( $field = array(), $value = '', $unique = '', $where = '', $parent = '' ) {
 
     $output     = '';
     $depend     = '';
     $sub        = ( isset( $field['sub'] ) ) ? 'sub-': '';
     $unique     = ( isset( $unique ) ) ? $unique : '';
-    $languages  = pm_language_defaults();
+    $languages  = wppml_language_defaults();
     $class      = 'PinMaster_Option_' . $field['type'];
     $wrap_class = ( isset( $field['wrap_class'] ) ) ? ' ' . $field['wrap_class'] : '';
     $el_class   = ( isset( $field['title'] ) ) ? sanitize_title( $field['title'] ) : 'no-title';
@@ -66,8 +66,8 @@ if ( ! function_exists( 'pm_add_element' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_encode_string' ) ) {
-  function pm_encode_string( $string ) {
+if ( ! function_exists( 'wppml_encode_string' ) ) {
+  function wppml_encode_string( $string ) {
     return serialize( $string );
   }
 }
@@ -80,8 +80,8 @@ if ( ! function_exists( 'pm_encode_string' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_decode_string' ) ) {
-  function pm_decode_string( $string ) {
+if ( ! function_exists( 'wppml_decode_string' ) ) {
+  function wppml_decode_string( $string ) {
     return unserialize( $string );
   }
 }
@@ -94,24 +94,24 @@ if ( ! function_exists( 'pm_decode_string' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_google_fonts' ) ) {
-  function pm_get_google_fonts() {
+if ( ! function_exists( 'wppml_get_google_fonts' ) ) {
+  function wppml_get_google_fonts() {
 
-    global $pm_google_fonts;
+    global $wppml_google_fonts;
 
-    if( ! empty( $pm_google_fonts ) ) {
+    if( ! empty( $wppml_google_fonts ) ) {
 
-      return $pm_google_fonts;
+      return $wppml_google_fonts;
 
     } else {
 
       ob_start();
-      pm_locate_template( 'fields/typography/google-fonts.json' );
+      wppml_locate_template( 'fields/typography/google-fonts.json' );
       $json = ob_get_clean();
 
-      $pm_google_fonts = json_decode( $json );
+      $wppml_google_fonts = json_decode( $json );
 
-      return $pm_google_fonts;
+      return $wppml_google_fonts;
     }
 
   }
@@ -125,11 +125,11 @@ if ( ! function_exists( 'pm_get_google_fonts' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_icon_fonts' ) ) {
-  function pm_get_icon_fonts( $file ) {
+if ( ! function_exists( 'wppml_get_icon_fonts' ) ) {
+  function wppml_get_icon_fonts( $file ) {
 
     ob_start();
-    pm_locate_template( $file );
+    wppml_locate_template( $file );
     $json = ob_get_clean();
 
     return json_decode( $json );
@@ -145,8 +145,8 @@ if ( ! function_exists( 'pm_get_icon_fonts' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_array_search' ) ) {
-  function pm_array_search( $array, $key, $value ) {
+if ( ! function_exists( 'wppml_array_search' ) ) {
+  function wppml_array_search( $array, $key, $value ) {
 
     $results = array();
 
@@ -156,7 +156,7 @@ if ( ! function_exists( 'pm_array_search' ) ) {
       }
 
       foreach ( $array as $sub_array ) {
-        $results = array_merge( $results, pm_array_search( $sub_array, $key, $value ) );
+        $results = array_merge( $results, wppml_array_search( $sub_array, $key, $value ) );
       }
 
     }
@@ -174,8 +174,8 @@ if ( ! function_exists( 'pm_array_search' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_var' ) ) {
-  function pm_get_var( $var, $default = '' ) {
+if ( ! function_exists( 'wppml_get_var' ) ) {
+  function wppml_get_var( $var, $default = '' ) {
 
     if( isset( $_POST[$var] ) ) {
       return $_POST[$var];
@@ -198,8 +198,8 @@ if ( ! function_exists( 'pm_get_var' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_vars' ) ) {
-  function pm_get_vars( $var, $depth, $default = '' ) {
+if ( ! function_exists( 'wppml_get_vars' ) ) {
+  function wppml_get_vars( $var, $depth, $default = '' ) {
 
     if( isset( $_POST[$var][$depth] ) ) {
       return $_POST[$var][$depth];
@@ -222,17 +222,17 @@ if ( ! function_exists( 'pm_get_vars' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_load_option_fields' ) ) {
-  function pm_load_option_fields() {
+if ( ! function_exists( 'wppml_load_option_fields' ) ) {
+  function wppml_load_option_fields() {
 
     $located_fields = array();
 
-    foreach ( glob( PM_PANEL .'/fields/*/*.php' ) as $pm_field ) {
-      $located_fields[] = basename( $pm_field );
-      pm_locate_template( str_replace(  PM_PANEL, '', $pm_field ) );
+    foreach ( glob( WPPML_PANEL .'/fields/*/*.php' ) as $wppml_field ) {
+      $located_fields[] = basename( $wppml_field );
+      wppml_locate_template( str_replace(  WPPML_PANEL, '', $wppml_field ) );
     }
 
-    do_action( 'pm_load_option_fields' );
+    do_action( 'wppml_load_option_fields' );
 
   }
 }

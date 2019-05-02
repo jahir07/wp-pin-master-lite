@@ -1856,12 +1856,12 @@ input.pm-field-color-picker.wp-color-picker {
   padding: 15px;
 }
 
-#customize-controls .customize-control-pm_field {
+#customize-controls .customize-control-wppml_field {
   position: relative;
   top: -10px;
   margin-bottom: 0;
 }
-#customize-controls .customize-control-pm_field .chosen-container.chosen-with-drop .chosen-drop {
+#customize-controls .customize-control-wppml_field .chosen-container.chosen-with-drop .chosen-drop {
   position: relative;
 }
 #customize-controls .pm-element {

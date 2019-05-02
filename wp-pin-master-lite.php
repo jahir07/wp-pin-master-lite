@@ -164,43 +164,43 @@ final class Pin_Master {
     public function define_constants() {
 
         // Plugin version.
-        if ( ! defined( 'PM_VERSION' ) ) {
-            define( 'PM_VERSION', $this->version );
+        if ( ! defined( 'WPPML_VERSION' ) ) {
+            define( 'WPPML_VERSION', $this->version );
         }
 
         // Plugin Folder Path.
-        if ( ! defined( 'PM_DIR' ) ) {
-            define( 'PM_DIR', plugin_dir_path( __FILE__ ) );
+        if ( ! defined( 'WPPML_DIR' ) ) {
+            define( 'WPPML_DIR', plugin_dir_path( __FILE__ ) );
         }
 
         // Plugin Folder URL.
-        if ( ! defined( 'PM_URI' ) ) {
-            define( 'PM_URI', plugin_dir_url( __FILE__ ) );
+        if ( ! defined( 'WPPML_URI' ) ) {
+            define( 'WPPML_URI', plugin_dir_url( __FILE__ ) );
         }
 
         // Plugin Root File.
-        if ( ! defined( 'PM_FILE' ) ) {
-            define( 'PM_FILE', __FILE__ );
+        if ( ! defined( 'WPPML_FILE' ) ) {
+            define( 'WPPML_FILE', __FILE__ );
         }
 
         // Plugins Classes
-        if ( ! defined( 'PM_CLASSES' ) ) {
-            define( 'PM_CLASSES', PM_DIR . 'classes' );
+        if ( ! defined( 'WPPML_CLASSES' ) ) {
+            define( 'WPPML_CLASSES', WPPML_DIR . 'classes' );
         }
 
         // Plugins options framework
-        if ( ! defined( 'PM_PANEL' ) ) {
-            define( 'PM_PANEL', PM_DIR . 'panel' );
+        if ( ! defined( 'WPPML_PANEL' ) ) {
+            define( 'WPPML_PANEL', WPPML_DIR . 'panel' );
         }
 
         // Plugins options config
-        if ( ! defined( 'PM_CONFIG' ) ) {
-            define( 'PM_CONFIG', PM_DIR . 'config' );
+        if ( ! defined( 'WPPML_CONFIG' ) ) {
+            define( 'WPPML_CONFIG', WPPML_DIR . 'config' );
         }
 
         // Plugins Assets
-        if ( ! defined( 'PM_ASSETS' ) ) {
-            define( 'PM_ASSETS', PM_URI . 'assets' );
+        if ( ! defined( 'WPPML_ASSETS' ) ) {
+            define( 'WPPML_ASSETS', WPPML_URI . 'assets' );
         }
         
     }
@@ -228,7 +228,7 @@ final class Pin_Master {
             update_option( 'wp_pin_master_installed', time() );
         }
 
-        update_option( 'wp_pin_master_version', PM_VERSION );
+        update_option( 'wp_pin_master_version', WPPML_VERSION );
     }
 
     /**
@@ -247,20 +247,20 @@ final class Pin_Master {
      */
     public function includes() {
 
-        require_once PM_CLASSES . '/assets.php';
-        require_once PM_CLASSES . '/widgets.php';
+        require_once WPPML_CLASSES . '/assets.php';
+        require_once WPPML_CLASSES . '/widgets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once PM_PANEL . '/pm-panel-functions.php';
-            require_once PM_PANEL . '/pm-panel-core.php';
+            require_once WPPML_PANEL . '/pm-panel-functions.php';
+            require_once WPPML_PANEL . '/pm-panel-core.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            require_once PM_CLASSES . '/frontend.php';
+            require_once WPPML_CLASSES . '/frontend.php';
         }
 
         if ( did_action( 'elementor/loaded' ) ) {
-            require_once PM_CLASSES . '/elementor.php';
+            require_once WPPML_CLASSES . '/elementor.php';
         }
     }
 
@@ -297,7 +297,7 @@ final class Pin_Master {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'pint-master', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'pin-master', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**

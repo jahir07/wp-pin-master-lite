@@ -119,7 +119,7 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
 
     $out = '';
 
-    if( ( isset( $this->field['debug'] ) && $this->field['debug'] === true ) || ( defined( 'PM_OPTIONS_DEBUG' ) && PM_OPTIONS_DEBUG ) ) {
+    if( ( isset( $this->field['debug'] ) && $this->field['debug'] === true ) || ( defined( 'WPPML_OPTIONS_DEBUG' ) && WPPML_OPTIONS_DEBUG ) ) {
 
       $value = $this->element_value();
 
@@ -132,7 +132,7 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
       $out .= "\n\n";
       $out .= "<strong>". esc_html__( 'USAGE', 'pin-master' ) .":</strong>";
       $out .= "\n";
-      $out .= ( isset( $this->field['id'] ) ) ? "pm_get_option( '". $this->field['id'] ."' );" : '';
+      $out .= ( isset( $this->field['id'] ) ) ? "wppml_get_option( '". $this->field['id'] ."' );" : '';
 
       if( ! empty( $value ) ) {
         $out .= "\n\n";
@@ -147,12 +147,12 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
 
     }
 
-    if( ( isset( $this->field['debug_light'] ) && $this->field['debug_light'] === true ) || ( defined( 'PM_OPTIONS_DEBUG_LIGHT' ) && PM_OPTIONS_DEBUG_LIGHT ) ) {
+    if( ( isset( $this->field['debug_light'] ) && $this->field['debug_light'] === true ) || ( defined( 'WPPML_OPTIONS_DEBUG_LIGHT' ) && WPPML_OPTIONS_DEBUG_LIGHT ) ) {
 
       $out .= "<pre>";
       $out .= "<strong>". esc_html__( 'USAGE', 'pin-master' ) .":</strong>";
       $out .= "\n";
-      $out .= ( isset( $this->field['id'] ) ) ? "pm_get_option( '". $this->field['id'] ."' );" : '';
+      $out .= ( isset( $this->field['id'] ) ) ? "wppml_get_option( '". $this->field['id'] ."' );" : '';
       $out .= "\n";
       $out .= "<strong>". esc_html__( 'ID', 'pin-master' ) .":</strong>";
       $out .= "\n";
@@ -167,12 +167,12 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
 
   public function element_get_error() {
 
-    global $pm_errors;
+    global $wppml_errors;
 
     $out = '';
 
-    if( ! empty( $pm_errors ) ) {
-      foreach ( $pm_errors as $key => $value ) {
+    if( ! empty( $wppml_errors ) ) {
+      foreach ( $wppml_errors as $key => $value ) {
         if( isset( $this->field['id'] ) && $value['code'] == $this->field['id'] ) {
           $out .= '<p class="pm-text-warning">'. $value['message'] .'</p>';
         }
@@ -345,10 +345,10 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
   }
 
   public function element_multilang() {
-    return ( isset( $this->field['multilang'] ) ) ? pm_language_defaults() : false;
+    return ( isset( $this->field['multilang'] ) ) ? wppml_language_defaults() : false;
   }
 
 }
 
 // load all of fields
-pm_load_option_fields();
+wppml_load_option_fields();

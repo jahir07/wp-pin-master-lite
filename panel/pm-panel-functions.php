@@ -7,8 +7,8 @@
  * @version 1.0.0
  *
  */
-defined( 'PM_OPTION' )     or  define( 'PM_OPTION',     '_pm_options' );
-defined( 'PM_CUSTOMIZE' )  or  define( 'PM_CUSTOMIZE',  '_pm_customize_options' );
+defined( 'WPPML_OPTION' )     or  define( 'WPPML_OPTION',     'wppml_options' );
+defined( 'WPPML_CUSTOMIZE' )  or  define( 'WPPML_CUSTOMIZE',  'wppml_customize_options' );
 
 /**
  *
@@ -18,8 +18,8 @@ defined( 'PM_CUSTOMIZE' )  or  define( 'PM_CUSTOMIZE',  '_pm_customize_options' 
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_get_path_locate' ) ) {
-  function pm_get_path_locate() {
+if( ! function_exists( 'wppml_get_path_locate' ) ) {
+  function wppml_get_path_locate() {
 
     $dirname        = wp_normalize_path( dirname( __FILE__ ) );
     $plugin_dir     = wp_normalize_path( WP_PLUGIN_DIR );
@@ -30,7 +30,7 @@ if( ! function_exists( 'pm_get_path_locate' ) ) {
     $dir            = $directory . $basename;
     $uri            = $directory_uri . $basename;
 
-    return apply_filters( 'pm_get_path_locate', array(
+    return apply_filters( 'wppml_get_path_locate', array(
       'basename' => wp_normalize_path( $basename ),
       'dir'      => wp_normalize_path( $dir ),
       'uri'      => $uri
@@ -48,9 +48,9 @@ if( ! function_exists( 'pm_get_path_locate' ) ) {
  *
  *
  */
-$get_path = pm_get_path_locate();
+$get_path = wppml_get_path_locate();
 
-defined( 'PM_BASENAME' )  or  define( 'PM_BASENAME',  $get_path['basename'] );
+defined( 'WPPML_BASENAME' )  or  define( 'WPPML_BASENAME',  $get_path['basename'] );
 
 /**
  *
@@ -60,18 +60,18 @@ defined( 'PM_BASENAME' )  or  define( 'PM_BASENAME',  $get_path['basename'] );
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_locate_template' ) ) {
-  function pm_locate_template( $template_name ) {
+if( ! function_exists( 'wppml_locate_template' ) ) {
+  function wppml_locate_template( $template_name ) {
 
     $located      = '';
     $dir_plugin   = wp_normalize_path( WP_PLUGIN_DIR );
     
     $dir_child    = get_stylesheet_directory();
-    $dir_template = PM_BASENAME .'/'. $template_name;
+    $dir_template = WPPML_BASENAME .'/'. $template_name;
 
     $located = $dir_plugin . $dir_template;
 
-    $located = apply_filters( 'pm_locate_template', $located, $template_name );
+    $located = apply_filters( 'wppml_locate_template', $located, $template_name );
 
     if ( ! empty( $located ) ) {
       load_template( $located, true );
@@ -92,9 +92,9 @@ if( ! function_exists( 'pm_locate_template' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_all_option' ) ) {
-  function pm_get_all_option() {
-    return get_option( PM_OPTION );
+if ( ! function_exists( 'wppml_get_all_option' ) ) {
+  function wppml_get_all_option() {
+    return get_option( WPPML_OPTION );
   }
 }
 
@@ -106,11 +106,11 @@ if ( ! function_exists( 'pm_get_all_option' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_multilang_option' ) ) {
-  function pm_get_multilang_option( $option_name = '', $default = '' ) {
+if ( ! function_exists( 'wppml_get_multilang_option' ) ) {
+  function wppml_get_multilang_option( $option_name = '', $default = '' ) {
 
-    $value     = pm_get_option( $option_name, $default );
-    $languages = pm_language_defaults();
+    $value     = wppml_get_option( $option_name, $default );
+    $languages = wppml_language_defaults();
     $default   = $languages['default'];
     $current   = $languages['current'];
 
@@ -133,10 +133,10 @@ if ( ! function_exists( 'pm_get_multilang_option' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_multilang_value' ) ) {
-  function pm_get_multilang_value( $value = '', $default = '' ) {
+if ( ! function_exists( 'wppml_get_multilang_value' ) ) {
+  function wppml_get_multilang_value( $value = '', $default = '' ) {
 
-    $languages = pm_language_defaults();
+    $languages = wppml_language_defaults();
     $default   = $languages['default'];
     $current   = $languages['current'];
 
@@ -159,10 +159,10 @@ if ( ! function_exists( 'pm_get_multilang_value' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_customize_option' ) ) {
-  function pm_get_customize_option( $option_name = '', $default = '' ) {
+if ( ! function_exists( 'wppml_get_customize_option' ) ) {
+  function wppml_get_customize_option( $option_name = '', $default = '' ) {
 
-    $options = apply_filters( 'pm_get_customize_option', get_option( PM_CUSTOMIZE ), $option_name, $default );
+    $options = apply_filters( 'wppml_get_customize_option', get_option( WPPML_CUSTOMIZE ), $option_name, $default );
 
     if( ! empty( $option_name ) && ! empty( $options[$option_name] ) ) {
       return $options[$option_name];
@@ -181,14 +181,14 @@ if ( ! function_exists( 'pm_get_customize_option' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_set_customize_option' ) ) {
-  function pm_set_customize_option( $option_name = '', $new_value = '' ) {
+if ( ! function_exists( 'wppml_set_customize_option' ) ) {
+  function wppml_set_customize_option( $option_name = '', $new_value = '' ) {
 
-    $options = apply_filters( 'pm_set_customize_option', get_option( PM_CUSTOMIZE ), $option_name, $new_value );
+    $options = apply_filters( 'wppml_set_customize_option', get_option( WPPML_CUSTOMIZE ), $option_name, $new_value );
 
     if( ! empty( $option_name ) ) {
       $options[$option_name] = $new_value;
-      update_option( PM_CUSTOMIZE, $options );
+      update_option( WPPML_CUSTOMIZE, $options );
     }
 
   }
@@ -202,9 +202,9 @@ if ( ! function_exists( 'pm_set_customize_option' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_get_all_customize_option' ) ) {
-  function pm_get_all_customize_option() {
-    return get_option( PM_CUSTOMIZE );
+if ( ! function_exists( 'wppml_get_all_customize_option' ) ) {
+  function wppml_get_all_customize_option() {
+    return get_option( WPPML_CUSTOMIZE );
   }
 }
 
@@ -216,8 +216,8 @@ if ( ! function_exists( 'pm_get_all_customize_option' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_is_wpml_activated' ) ) {
-  function pm_is_wpml_activated() {
+if ( ! function_exists( 'wppml_is_wpml_activated' ) ) {
+  function wppml_is_wpml_activated() {
     if ( class_exists( 'SitePress' ) ) { return true; } else { return false; }
   }
 }
@@ -230,8 +230,8 @@ if ( ! function_exists( 'pm_is_wpml_activated' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_is_qtranslate_activated' ) ) {
-  function pm_is_qtranslate_activated() {
+if ( ! function_exists( 'wppml_is_qtranslate_activated' ) ) {
+  function wppml_is_qtranslate_activated() {
     if ( function_exists( 'qtrans_getSortedLanguages' ) ) { return true; } else { return false; }
   }
 }
@@ -244,8 +244,8 @@ if ( ! function_exists( 'pm_is_qtranslate_activated' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_is_polylang_activated' ) ) {
-  function pm_is_polylang_activated() {
+if ( ! function_exists( 'wppml_is_polylang_activated' ) ) {
+  function wppml_is_polylang_activated() {
     if ( class_exists( 'Polylang' ) ) { return true; } else { return false; }
   }
 }
@@ -258,16 +258,16 @@ if ( ! function_exists( 'pm_is_polylang_activated' ) ) {
  * @version 1.0.0
  *
  */
-if ( ! function_exists( 'pm_language_defaults' ) ) {
-  function pm_language_defaults() {
+if ( ! function_exists( 'wppml_language_defaults' ) ) {
+  function wppml_language_defaults() {
     $multilang = array();
-    if( pm_is_wpml_activated() || pm_is_qtranslate_activated() || pm_is_polylang_activated() ) {
-      if( pm_is_wpml_activated() ) {
+    if( wppml_is_wpml_activated() || wppml_is_qtranslate_activated() || wppml_is_polylang_activated() ) {
+      if( wppml_is_wpml_activated() ) {
         global $sitepress;
         $multilang['default']   = $sitepress->get_default_language();
         $multilang['current']   = $sitepress->get_current_language();
         $multilang['languages'] = $sitepress->get_active_languages();
-      } else if( pm_is_polylang_activated() ) {
+      } else if( wppml_is_polylang_activated() ) {
         global $polylang;
         $current    = pll_current_language();
         $default    = pll_default_language();
@@ -280,14 +280,14 @@ if ( ! function_exists( 'pm_language_defaults' ) ) {
         $multilang['default']   = $default;
         $multilang['current']   = $current;
         $multilang['languages'] = $languages;
-      } else if( pm_is_qtranslate_activated() ) {
+      } else if( wppml_is_qtranslate_activated() ) {
         global $q_config;
         $multilang['default']   = $q_config['default_language'];
         $multilang['current']   = $q_config['language'];
         $multilang['languages'] = array_flip( qtrans_getSortedLanguages() );
       }
     }
-    $multilang = apply_filters( 'pm_language_defaults', $multilang );
+    $multilang = apply_filters( 'wppml_language_defaults', $multilang );
     return ( ! empty( $multilang ) ) ? $multilang : false;
   }
 }

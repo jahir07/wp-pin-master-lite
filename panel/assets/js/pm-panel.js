@@ -14,10 +14,10 @@
   $.PINMASTER = $.PINMASTER || {};
 
   // caching selector
-  var $pm_body = $('body');
+  var $wppml_body = $('body');
 
   // caching variables
-  var pm_is_rtl  = $pm_body.hasClass('rtl');
+  var wppml_is_rtl  = $wppml_body.hasClass('rtl');
 
   // ======================================================
   // PINMASTER TAB NAVIGATION
@@ -712,7 +712,7 @@
 
     base.init = function () {
 
-      $pm_body.on('click', '.pm-icon-add', function( e ) {
+      $wppml_body.on('click', '.pm-icon-add', function( e ) {
 
         e.preventDefault();
 
@@ -737,7 +737,7 @@
           open: function() {
 
             // fix scrolling
-            $pm_body.addClass('pm-icon-scrolling');
+            $wppml_body.addClass('pm-icon-scrolling');
 
             // fix button for VC
             $('.ui-dialog-titlebar-close').addClass('ui-button');
@@ -757,7 +757,7 @@
 
           },
           close: function() {
-            $pm_body.removeClass('pm-icon-scrolling');
+            $wppml_body.removeClass('pm-icon-scrolling');
           }
         });
 
@@ -817,7 +817,7 @@
 
       });
 
-      $pm_body.on('click', '.pm-icon-remove', function( e ) {
+      $wppml_body.on('click', '.pm-icon-remove', function( e ) {
 
         e.preventDefault();
 
@@ -857,7 +857,7 @@
           $shortcode_button,
           editor_id;
 
-      $pm_body.on('click', '.pm-shortcode', function( e ) {
+      $wppml_body.on('click', '.pm-shortcode', function( e ) {
 
         e.preventDefault();
 
@@ -878,7 +878,7 @@
           open: function() {
 
             // fix scrolling
-            $pm_body.addClass('pm-shortcode-scrolling');
+            $wppml_body.addClass('pm-shortcode-scrolling');
 
             // fix button for VC
             $('.ui-dialog-titlebar-close').addClass('ui-button');
@@ -899,7 +899,7 @@
           },
           close: function() {
             shortcode_target = false;
-            $pm_body.removeClass('pm-shortcode-scrolling');
+            $wppml_body.removeClass('pm-shortcode-scrolling');
           }
         });
 
@@ -1321,7 +1321,7 @@
                 });
 
                 // hide alpha wrapper on click body
-                $pm_body.on( 'click.wpcolorpicker', function() {
+                $wppml_body.on( 'click.wpcolorpicker', function() {
                   $alpha_wrap.hide();
                 });
 
@@ -1372,7 +1372,7 @@
   // ------------------------------------------------------
   $.fn.PINMASTER_TOOLTIP = function() {
     return this.each(function() {
-      var placement = ( pm_is_rtl ) ? 'right' : 'left';
+      var placement = ( wppml_is_rtl ) ? 'right' : 'left';
       $(this).cstooltip({html:true, placement:placement, container:'body'});
     });
   };

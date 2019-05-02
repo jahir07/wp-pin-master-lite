@@ -16,7 +16,7 @@ class PinMaster extends PinMaster_Abstract {
    * @var string
    *
    */
-  public $unique = PM_OPTION;
+  public $unique = WPPML_OPTION;
 
   /**
    *
@@ -66,13 +66,13 @@ class PinMaster extends PinMaster_Abstract {
   // run framework construct
   public function __construct( $settings, $options ) {
 
-    $this->settings = apply_filters( 'pm_framework_settings', $settings );
-    $this->options  = apply_filters( 'pm_framework_options', $options );
+    $this->settings = apply_filters( 'wppml_framework_settings', $settings );
+    $this->options  = apply_filters( 'wppml_framework_options', $options );
 
     if( ! empty( $this->options ) ) {
 
       $this->sections   = $this->get_sections();
-      $this->get_option = get_option( PM_OPTION );
+      $this->get_option = get_option( WPPML_OPTION );
       $this->addAction( 'admin_init', 'settings_api' );
       $this->addAction( 'admin_menu', 'admin_menu' );
 
@@ -82,7 +82,7 @@ class PinMaster extends PinMaster_Abstract {
 
   // instance
   public static function instance( $settings = array(), $options = array() ) {
-    if ( is_null( self::$instance ) && PM_ACTIVE_PANEL ) {
+    if ( is_null( self::$instance ) && WPPML_ACTIVE_PANEL ) {
       self::$instance = new self( $settings, $options );
     }
     return self::$instance;
@@ -156,14 +156,14 @@ class PinMaster extends PinMaster_Abstract {
   public function validate_save( $request ) {
 
     $add_errors = array();
-    $section_id = pm_get_var( 'pm_section_id' );
+    $section_id = wppml_get_var( 'wppml_section_id' );
 
     // ignore nonce requests
     if( isset( $request['_nonce'] ) ) { unset( $request['_nonce'] ); }
 
     // import
     if ( isset( $request['import'] ) && ! empty( $request['import'] ) ) {
-      $decode_string = pm_decode_string( $request['import'] );
+      $decode_string = wppml_decode_string( $request['import'] );
       if( is_array( $decode_string ) ) {
         return $decode_string;
       }
@@ -210,14 +210,14 @@ class PinMaster extends PinMaster_Abstract {
               $sanitize_type = ( $field['sanitize'] !== false ) ? $field['sanitize'] : false;
             }
 
-            if( $sanitize_type !== false && has_filter( 'pm_sanitize_'. $sanitize_type ) ) {
-              $request[$field['id']] = apply_filters( 'pm_sanitize_' . $sanitize_type, $request_value, $field, $section['fields'] );
+            if( $sanitize_type !== false && has_filter( 'wppml_sanitize_'. $sanitize_type ) ) {
+              $request[$field['id']] = apply_filters( 'wppml_sanitize_' . $sanitize_type, $request_value, $field, $section['fields'] );
             }
 
             // validate options
-            if ( isset( $field['validate'] ) && has_filter( 'pm_validate_'. $field['validate'] ) ) {
+            if ( isset( $field['validate'] ) && has_filter( 'wppml_validate_'. $field['validate'] ) ) {
 
-              $validate = apply_filters( 'pm_validate_' . $field['validate'], $request_value, $field, $section['fields'] );
+              $validate = apply_filters( 'wppml_validate_' . $field['validate'], $request_value, $field, $section['fields'] );
 
               if( ! empty( $validate ) ) {
                 $add_errors[] = $this->add_settings_error( $validate, 'error', $field['id'] );
@@ -236,12 +236,12 @@ class PinMaster extends PinMaster_Abstract {
       }
     }
 
-    $request = apply_filters( 'pm_validate_save', $request );
+    $request = apply_filters( 'wppml_validate_save', $request );
 
-    do_action( 'pm_validate_save_after', $request );
+    do_action( 'wppml_validate_save_after', $request );
 
     // set transient
-    $transient_time = ( pm_language_defaults() !== false ) ? 30 : 10;
+    $transient_time = ( wppml_language_defaults() !== false ) ? 30 : 10;
     set_transient( 'pm-framework-transient', array( 'errors' => $add_errors, 'section_id' => $section_id ), $transient_time );
 
     return $request;
@@ -250,7 +250,7 @@ class PinMaster extends PinMaster_Abstract {
   // field callback classes
   public function field_callback( $field ) {
     $value = ( isset( $field['id'] ) && isset( $this->get_option[$field['id']] ) ) ? $this->get_option[$field['id']] : '';
-    echo pm_add_element( $field, $value, $this->unique );
+    echo wppml_add_element( $field, $value, $this->unique );
   }
 
   public function add_settings_error( $message, $type = 'error', $id = 'global' ) {
@@ -298,21 +298,21 @@ class PinMaster extends PinMaster_Abstract {
     $transient  = get_transient( 'pm-framework-transient' );
     $has_nav    = ( count( $this->options ) <= 1 ) ? ' pm-show-all' : '';
     $section_id = ( ! empty( $transient['section_id'] ) ) ? $transient['section_id'] : $this->sections[0]['name'];
-    $section_id = pm_get_var( 'pm-section', $section_id );
+    $section_id = wppml_get_var( 'pm-section', $section_id );
 
     echo '<div class="pm-framework pm-option-framework">';
 
       echo '<form method="post" action="options.php" enctype="multipart/form-data" id="csframework_form">';
-      echo '<input type="hidden" class="pm-reset" name="pm_section_id" value="'. $section_id .'" />';
+      echo '<input type="hidden" class="pm-reset" name="wppml_section_id" value="'. $section_id .'" />';
 
       if( $this->settings['ajax_save'] !== true && ! empty( $transient['errors'] ) ) {
 
-        global $pm_errors;
+        global $wppml_errors;
 
-        $pm_errors = $transient['errors'];
+        $wppml_errors = $transient['errors'];
 
-        if ( ! empty( $pm_errors ) ) {
-          foreach ( $pm_errors as $error ) {
+        if ( ! empty( $wppml_errors ) ) {
+          foreach ( $wppml_errors as $error ) {
             if( in_array( $error['setting'], array( 'general', 'pm-errors' ) ) ) {
               echo '<div class="pm-settings-error '. $error['type'] .'">';
               echo '<p><strong>'. $error['message'] .'</strong></p>';
@@ -352,7 +352,7 @@ class PinMaster extends PinMaster_Abstract {
 
             if( ( isset( $tab['sections'] ) ) ) {
 
-              $tab_active   = pm_array_search( $tab['sections'], 'name', $section_id );
+              $tab_active   = wppml_array_search( $tab['sections'], 'name', $section_id );
               $active_style = ( ! empty( $tab_active ) ) ? ' style="display: block;"' : '';
               $active_list  = ( ! empty( $tab_active ) ) ? ' pm-tab-active' : '';
               $tab_icon     = ( ! empty( $tab['icon'] ) ) ? '<i class="pm-icon '. $tab['icon'] .'"></i>' : '';
@@ -430,7 +430,7 @@ class PinMaster extends PinMaster_Abstract {
 
       echo '<footer class="pm-footer">';
       echo '<div class="pm-block-left">Powered by <a href="https://www.codextune.com">CodexTune</a></div>';
-      echo '<div class="pm-block-right">Version '. PM_VERSION .'</div>';
+      echo '<div class="pm-block-right">Version '. WPPML_VERSION .'</div>';
       echo '<div class="clear"></div>';
       echo '</footer>'; // end .pm-footer
 

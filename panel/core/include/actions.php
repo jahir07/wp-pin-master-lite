@@ -7,18 +7,18 @@
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_get_icons' ) ) {
-  function pm_get_icons() {
+if( ! function_exists( 'wppml_get_icons' ) ) {
+  function wppml_get_icons() {
 
-    do_action( 'pm_add_icons_before' );
+    do_action( 'wppml_add_icons_before' );
 
-    $jsons = apply_filters( 'pm_add_icons_json', glob( PM_PANEL . '/fields/icon/*.json' ) );
+    $jsons = apply_filters( 'wppml_add_icons_json', glob( WPPML_PANEL . '/fields/icon/*.json' ) );
 
     if( ! empty( $jsons ) ) {
 
       foreach ( $jsons as $path ) {
 
-        $object = pm_get_icon_fonts( 'fields/icon/'. basename( $path ) );
+        $object = wppml_get_icon_fonts( 'fields/icon/'. basename( $path ) );
 
         if( is_object( $object ) ) {
 
@@ -36,12 +36,12 @@ if( ! function_exists( 'pm_get_icons' ) ) {
 
     }
 
-    do_action( 'pm_add_icons' );
-    do_action( 'pm_add_icons_after' );
+    do_action( 'wppml_add_icons' );
+    do_action( 'wppml_add_icons_after' );
 
     die();
   }
-  add_action( 'wp_ajax_pm-get-icons', 'pm_get_icons' );
+  add_action( 'wp_ajax_pm-get-icons', 'wppml_get_icons' );
 }
 
 /**
@@ -52,8 +52,8 @@ if( ! function_exists( 'pm_get_icons' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_export_options' ) ) {
-  function pm_export_options() {
+if( ! function_exists( 'wppml_export_options' ) ) {
+  function wppml_export_options() {
 
     header('Content-Type: plain/text');
     header('Content-disposition: attachment; filename=backup-options-'. gmdate( 'd-m-Y' ) .'.txt');
@@ -61,11 +61,11 @@ if( ! function_exists( 'pm_export_options' ) ) {
     header('Pragma: no-cache');
     header('Expires: 0');
 
-    echo pm_encode_string( get_option( PM_OPTION ) );
+    echo wppml_encode_string( get_option( WPPML_OPTION ) );
 
     die();
   }
-  add_action( 'wp_ajax_pm-export-options', 'pm_export_options' );
+  add_action( 'wp_ajax_pm-export-options', 'wppml_export_options' );
 }
 
 /**
@@ -76,8 +76,8 @@ if( ! function_exists( 'pm_export_options' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_set_icons' ) ) {
-  function pm_set_icons() {
+if( ! function_exists( 'wppml_set_icons' ) ) {
+  function wppml_set_icons() {
 
     echo '<div id="pm-icon-dialog" class="pm-dialog" title="'. esc_html__( 'Add Pinterest Icon', 'pin-master' ) .'">';
     echo '<div class="pm-dialog-header pm-text-center"><input type="text" placeholder="'. esc_html__( 'Search Pinterest Icon...', 'pin-master' ) .'" class="pm-icon-search" /></div>';
@@ -85,6 +85,6 @@ if( ! function_exists( 'pm_set_icons' ) ) {
     echo '</div>';
 
   }
-  add_action( 'admin_footer', 'pm_set_icons' );
-  add_action( 'customize_controls_print_footer_scripts', 'pm_set_icons' );
+  add_action( 'admin_footer', 'wppml_set_icons' );
+  add_action( 'customize_controls_print_footer_scripts', 'wppml_set_icons' );
 }

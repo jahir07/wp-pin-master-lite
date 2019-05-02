@@ -3,12 +3,12 @@
 // Settings
 $settings           = array(
   'menu_title'      => 'WP Pin Master',
-  'menu_icon'        => PM_ASSETS . '/images/pinicon.png',
+  'menu_icon'        => WPPML_ASSETS . '/images/pinicon.png',
   'menu_type'       => 'menu',
   'menu_slug'       => 'pm-panel',
   'ajax_save'       => false,
   'show_reset_all'  => false,
-  'framework_title' => 'WP Pin Master Lite<small>v '.PM_VERSION.'</small>',
+  'framework_title' => 'WP Pin Master Lite<small>v '.WPPML_VERSION.'</small>',
 );
 
 
@@ -57,7 +57,7 @@ $options[]      = array(
       'title'    => __( 'Pin It Button - Where Show', 'pin-master' ),
       'desc'    => __( 'How pinterest button display this option responsible.', 'pin-master' ),
       'options' => array(
-        '.pm_container img' => 'Only Article Area',
+        '.wppml_container img' => 'Only Article Area',
         'article_sidebar_for_pro' => ['Article Area + Sidebar - Pro Only', 'disabled'],
         'all_image' => ['All Image - Pro Only', 'disabled'],
       ),
@@ -137,7 +137,7 @@ $options[]      = array(
     array(
       'id'      => 'old_style',
       'type'    => 'preview',
-      'default'   => PM_ASSETS . '/images/pin-old.png',
+      'default'   => WPPML_ASSETS . '/images/pin-old.png',
       'title'    => __( 'Preview', 'pin-master' ),
       'dependency' => array('pin_image', '==', 'old_default'),
     ),
@@ -146,7 +146,7 @@ $options[]      = array(
     array(
       'id'      => 'default_style',
       'type'    => 'preview',
-      'default'   => PM_ASSETS . '/images/default.png',
+      'default'   => WPPML_ASSETS . '/images/default.png',
       'title'    => __( 'Preview', 'pin-master' ),
       'dependency' => array('pin_image', '==', 'default'),
     ),

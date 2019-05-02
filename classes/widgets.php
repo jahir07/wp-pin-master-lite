@@ -10,11 +10,11 @@ if( ! class_exists( 'Pin_Master_Widget' ) ) {
 		function __construct() {
 
 			$widget_ops     = array(
-				'classname'   => 'pm_pinterest_follow_button',
+				'classname'   => 'wppml_pinterest_follow_button',
 				'description' => esc_html__('Pinterest Follower', 'pin-master')
 			);
 
-			parent::__construct( 'pm_pinterest_follow_button', 'Pin Master : Pinterest Follower', $widget_ops );
+			parent::__construct( 'wppml_pinterest_follow_button', 'Pin Master : Pinterest Follower', $widget_ops );
 
 		}
 
@@ -69,7 +69,7 @@ if( ! class_exists( 'Pin_Master_Widget' ) ) {
 				'title' => 'Title',
 			);
 
-			echo pm_add_element( $text_field, $text_value );
+			echo wppml_add_element( $text_field, $text_value );
 
 
 			
@@ -84,7 +84,7 @@ if( ! class_exists( 'Pin_Master_Widget' ) ) {
 				'title' => 'Pinterest URL',
 			);
 
-			echo pm_add_element( $pinterest_user_URL_field, $pinterest_user_URL_value );
+			echo wppml_add_element( $pinterest_user_URL_field, $pinterest_user_URL_value );
 
 	      //
 	      // Name
@@ -97,17 +97,17 @@ if( ! class_exists( 'Pin_Master_Widget' ) ) {
 				'title' => 'Pinterest Profile Name',
 			);
 
-			echo pm_add_element( $pinterest_name_field, $pinterest_name_value );
+			echo wppml_add_element( $pinterest_name_field, $pinterest_name_value );
 
 		}
 	}
 }
 
-if ( ! function_exists( 'pm_pinterest_follow_button_init' ) ) {
-	function pm_pinterest_follow_button_init() {
+if ( ! function_exists( 'wppml_pinterest_follow_button_init' ) ) {
+	function wppml_pinterest_follow_button_init() {
 		register_widget( __NAMESPACE__ . '\\Pin_Master_Widget' );
 	}
-	add_action( 'widgets_init', __NAMESPACE__ . '\\pm_pinterest_follow_button_init', 2 );
+	add_action( 'widgets_init', __NAMESPACE__ . '\\wppml_pinterest_follow_button_init', 2 );
 }
 
 /*
@@ -120,11 +120,11 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 		function __construct() {
 
 			$widget_ops     = array(
-				'classname'   => 'pm_pinterest_builder',
+				'classname'   => 'wppml_pinterest_builder',
 				'description' => esc_html__('Pinterest Builder', 'pin-master')
 			);
 
-			parent::__construct( 'pm_pinterest_builder', 'Pin Master : Pinterest Builder', $widget_ops );
+			parent::__construct( 'wppml_pinterest_builder', 'Pin Master : Pinterest Builder', $widget_ops );
 
 		}
 
@@ -183,7 +183,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Title',
 			);
 
-			echo pm_add_element( $text_field, $text_value );
+			echo wppml_add_element( $text_field, $text_value );
 
 
 			 //
@@ -202,7 +202,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Widget Builder',
 			);
 
-			echo pm_add_element( $builder_select_field, $builder_select_value );
+			echo wppml_add_element( $builder_select_field, $builder_select_value );
 
 	      //
 	      // profile url
@@ -215,7 +215,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Pinterest URL',
 			);
 
-			echo pm_add_element( $pinterest_user_URL_field, $pinterest_user_URL_value );
+			echo wppml_add_element( $pinterest_user_URL_field, $pinterest_user_URL_value );
 
 	      
 			 //
@@ -230,7 +230,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Pinterest Board Width',
 			);
 
-			echo pm_add_element( $pinterest_borard_width_field, $pinterest_borard_width_value );
+			echo wppml_add_element( $pinterest_borard_width_field, $pinterest_borard_width_value );
 
 
 			 //
@@ -245,7 +245,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Pinterest Scale Width',
 			);
 
-			echo pm_add_element( $pinterest_scale_width_field, $pinterest_scale_width_value );
+			echo wppml_add_element( $pinterest_scale_width_field, $pinterest_scale_width_value );
 
 			 //
 	      // Board Width
@@ -259,15 +259,15 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 				'title' => 'Pinterest Scale Height',
 			);
 
-			echo pm_add_element( $pinterest_scale_height_field, $pinterest_scale_height_value );
+			echo wppml_add_element( $pinterest_scale_height_field, $pinterest_scale_height_value );
 
 		}
 	}
 }
 
-if ( ! function_exists( 'pm_pinterest_board_init' ) ) {
-	function pm_pinterest_board_init() {
+if ( ! function_exists( 'wppml_pinterest_board_init' ) ) {
+	function wppml_pinterest_board_init() {
 		register_widget( __NAMESPACE__ . '\\Pin_Master_Board_Widget' );
 	}
-	add_action( 'widgets_init', __NAMESPACE__ . '\\pm_pinterest_board_init', 2 );
+	add_action( 'widgets_init', __NAMESPACE__ . '\\wppml_pinterest_board_init', 2 );
 }

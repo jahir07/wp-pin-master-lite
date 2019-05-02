@@ -32,7 +32,7 @@ Class Frontend {
 		wp_enqueue_style('pin-master-style');
 
 		// scripts
-		$get_options = get_option('_pm_options');
+		$get_options = get_option('wppml_options');
 
 		if( array_key_exists('where_show', $get_options ) ) {
 			$where_show = $get_options['where_show'];
@@ -75,8 +75,9 @@ Class Frontend {
 				$this->get_plugins_settings()
 			),
 		);
-		var_dump($parameters_array);
-		wp_localize_script( 'pin-master-vendor', 'pm_options', $parameters_array );
+
+		// var_dump($parameters_array);
+		wp_localize_script( 'pin-master-vendor', 'wppml_options', $parameters_array );
 	}
 
 	/**
@@ -85,7 +86,7 @@ Class Frontend {
 	 * @return void 
 	 */
 	public function get_plugins_settings(){
-		$options = get_option('_pm_options');
+		$options = get_option('wppml_options');
 		return $options;
 	}
 
@@ -98,7 +99,7 @@ Class Frontend {
 	 */
 	public function default_options(){
 		$options= array( 
-			'image_selector' => '.pm_container img',
+			'image_selector' => '.wppml_container img',
 			'disabled_classes' => 'wp-smiley;nopin',
 			'min_image_width' => 200,
 			'min_image_height' => 150,
@@ -138,7 +139,7 @@ Class Frontend {
 	 * @since 1.0
 	 */
 	public function print_header_styles() {
-		$options_val = get_option( '_pm_options' );
+		$options_val = get_option( 'wppml_options' );
 
 		
 		ob_start(); 
@@ -238,7 +239,7 @@ Class Frontend {
 		if( isset($default['description_option']) ) { 
 			$default_desc = $default['description_option'];
 		};
-		$basic_options = get_option('_pm_options');
+		$basic_options = get_option('wppml_options');
 
 		if( isset($basic_options['description_option']) ) { 
 			$basic_desc = $basic_options['description_option'];
@@ -303,7 +304,7 @@ Class Frontend {
 						var $inputs = jQuery('.pin-master');
 						var $closest = $inputs.closest('div, article');
 						$closest = $closest.length ? $closest : $inputs.parent();
-						$closest.addClass('pm_container');
+						$closest.addClass('wppml_container');
 					});
 				})();
 			</script>

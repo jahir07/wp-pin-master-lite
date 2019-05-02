@@ -7,11 +7,11 @@
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_text' ) ) {
-  function pm_sanitize_text( $value, $field ) {
+if( ! function_exists( 'wppml_sanitize_text' ) ) {
+  function wppml_sanitize_text( $value, $field ) {
     return wp_filter_nohtml_kses( $value );
   }
-  add_filter( 'pm_sanitize_text', 'pm_sanitize_text', 10, 2 );
+  add_filter( 'wppml_sanitize_text', 'wppml_sanitize_text', 10, 2 );
 }
 
 /**
@@ -22,14 +22,14 @@ if( ! function_exists( 'pm_sanitize_text' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_textarea' ) ) {
-  function pm_sanitize_textarea( $value ) {
+if( ! function_exists( 'wppml_sanitize_textarea' ) ) {
+  function wppml_sanitize_textarea( $value ) {
 
     global $allowedposttags;
     return wp_kses( $value, $allowedposttags );
 
   }
-  add_filter( 'pm_sanitize_textarea', 'pm_sanitize_textarea' );
+  add_filter( 'wppml_sanitize_textarea', 'wppml_sanitize_textarea' );
 }
 
 /**
@@ -41,8 +41,8 @@ if( ! function_exists( 'pm_sanitize_textarea' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_checkbox' ) ) {
-  function pm_sanitize_checkbox( $value ) {
+if( ! function_exists( 'wppml_sanitize_checkbox' ) ) {
+  function wppml_sanitize_checkbox( $value ) {
 
     if( ! empty( $value ) && $value == 1 ) {
       $value = true;
@@ -55,8 +55,8 @@ if( ! function_exists( 'pm_sanitize_checkbox' ) ) {
     return $value;
 
   }
-  add_filter( 'pm_sanitize_checkbox', 'pm_sanitize_checkbox' );
-  add_filter( 'pm_sanitize_switcher', 'pm_sanitize_checkbox' );
+  add_filter( 'wppml_sanitize_checkbox', 'wppml_sanitize_checkbox' );
+  add_filter( 'wppml_sanitize_switcher', 'wppml_sanitize_checkbox' );
 }
 
 /**
@@ -69,8 +69,8 @@ if( ! function_exists( 'pm_sanitize_checkbox' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_image_select' ) ) {
-  function pm_sanitize_image_select( $value ) {
+if( ! function_exists( 'wppml_sanitize_image_select' ) ) {
+  function wppml_sanitize_image_select( $value ) {
 
     if( isset( $value ) && is_array( $value ) ) {
       if( count( $value ) ) {
@@ -85,7 +85,7 @@ if( ! function_exists( 'pm_sanitize_image_select' ) ) {
     return $value;
 
   }
-  add_filter( 'pm_sanitize_image_select', 'pm_sanitize_image_select' );
+  add_filter( 'wppml_sanitize_image_select', 'wppml_sanitize_image_select' );
 }
 
 /**
@@ -97,11 +97,11 @@ if( ! function_exists( 'pm_sanitize_image_select' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_group' ) ) {
-  function pm_sanitize_group( $value ) {
+if( ! function_exists( 'wppml_sanitize_group' ) ) {
+  function wppml_sanitize_group( $value ) {
     return ( empty( $value ) ) ? '' : $value;
   }
-  add_filter( 'pm_sanitize_group', 'pm_sanitize_group' );
+  add_filter( 'wppml_sanitize_group', 'wppml_sanitize_group' );
 }
 
 /**
@@ -112,11 +112,11 @@ if( ! function_exists( 'pm_sanitize_group' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_title' ) ) {
-  function pm_sanitize_title( $value ) {
+if( ! function_exists( 'wppml_sanitize_title' ) ) {
+  function wppml_sanitize_title( $value ) {
     return sanitize_title( $value );
   }
-  add_filter( 'pm_sanitize_title', 'pm_sanitize_title' );
+  add_filter( 'wppml_sanitize_title', 'wppml_sanitize_title' );
 }
 
 /**
@@ -127,9 +127,9 @@ if( ! function_exists( 'pm_sanitize_title' ) ) {
  * @version 1.0.0
  *
  */
-if( ! function_exists( 'pm_sanitize_clean' ) ) {
-  function pm_sanitize_clean( $value ) {
+if( ! function_exists( 'wppml_sanitize_clean' ) ) {
+  function wppml_sanitize_clean( $value ) {
     return $value;
   }
-  add_filter( 'pm_sanitize_clean', 'pm_sanitize_clean', 10, 2 );
+  add_filter( 'wppml_sanitize_clean', 'wppml_sanitize_clean', 10, 2 );
 }
