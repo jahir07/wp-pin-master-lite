@@ -38,11 +38,13 @@ const loaders = {
     loader: 'postcss-loader',
     options: {
       plugins: [
+      require('cssnano')({ safe: true }),
       autoprefixer( {
         browsers,
         flexbox: 'no-2009',
       } ),
       ],
+      minimize: true,
       sourceMap: true,
     },
   },
@@ -82,7 +84,7 @@ const config = {
         [
         '@wordpress/babel-plugin-makepot',
         {
-          'output': `${ paths.lang }translation.pot`,
+          'output': `${ paths.lang }pin-master.pot`,
         }
         ],
         'transform-class-properties',

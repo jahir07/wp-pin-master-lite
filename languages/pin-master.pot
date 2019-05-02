@@ -3,18 +3,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: _dev/guten-block/images-extend/fields.js:77
+#: _dev/js/guten-block/images-extend/fields.js:77
 msgid "WP Pin Master"
 msgstr ""
 
-#: _dev/guten-block/images-extend/fields.js:81
+#: _dev/js/guten-block/images-extend/fields.js:81
 msgid "Pinterest - Description"
 msgstr ""
 
-#: _dev/guten-block/images-extend/fields.js:87
+#: _dev/js/guten-block/images-extend/fields.js:87
 msgid "Pinterest - Repin ID"
 msgstr ""
 
-#: _dev/guten-block/images-extend/fields.js:92
+#: _dev/js/guten-block/images-extend/fields.js:92
 msgid "No Pin - Disable Pinning"
 msgstr ""
