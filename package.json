@@ -38,5 +38,8 @@
     "repository": {
         "type": "git",
         "url": "git://github.com/jahir07/wp-pin-master-lite.git"
+    },
+    "dependencies": {
+        "tar": "^4.4.8"
     }
 }
