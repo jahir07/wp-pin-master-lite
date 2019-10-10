@@ -1,11 +1,11 @@
 <?php
-namespace Pin_Master\Classes;
+namespace WP_Pin_Master_Lite\Classes;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-if( ! class_exists( 'Pin_Master_Widget' ) ) {
-	class Pin_Master_Widget extends \WP_Widget {
+if( ! class_exists( 'WP_Pin_Master_Lite_Widget' ) ) {
+	class WP_Pin_Master_Lite_Widget extends \WP_Widget {
 
 		function __construct() {
 
@@ -105,7 +105,7 @@ if( ! class_exists( 'Pin_Master_Widget' ) ) {
 
 if ( ! function_exists( 'wppml_pinterest_follow_button_init' ) ) {
 	function wppml_pinterest_follow_button_init() {
-		register_widget( __NAMESPACE__ . '\\Pin_Master_Widget' );
+		register_widget( __NAMESPACE__ . '\\WP_Pin_Master_Lite_Widget' );
 	}
 	add_action( 'widgets_init', __NAMESPACE__ . '\\wppml_pinterest_follow_button_init', 2 );
 }
@@ -114,8 +114,8 @@ if ( ! function_exists( 'wppml_pinterest_follow_button_init' ) ) {
 * 	board
 * -----------------------------------------------------------------------------------------*/
 
-if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
-	class Pin_Master_Board_Widget extends \WP_Widget {
+if( ! class_exists( 'WP_Pin_Master_Lite_Board_Widget' ) ) {
+	class WP_Pin_Master_Lite_Board_Widget extends \WP_Widget {
 
 		function __construct() {
 
@@ -267,7 +267,7 @@ if( ! class_exists( 'Pin_Master_Board_Widget' ) ) {
 
 if ( ! function_exists( 'wppml_pinterest_board_init' ) ) {
 	function wppml_pinterest_board_init() {
-		register_widget( __NAMESPACE__ . '\\Pin_Master_Board_Widget' );
+		register_widget( __NAMESPACE__ . '\\WP_Pin_Master_Lite_Board_Widget' );
 	}
 	add_action( 'widgets_init', __NAMESPACE__ . '\\wppml_pinterest_board_init', 2 );
 }

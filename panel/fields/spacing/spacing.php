@@ -7,8 +7,8 @@
  * @version 1.0.0
  *
  */
-if( ! class_exists( 'PinMaster_Option_spacing' ) ) {
-  class PinMaster_Option_spacing extends PinMaster_Options {
+if( ! class_exists( 'WPPinMasterLite_Option_spacing' ) ) {
+  class WPPinMasterLite_Option_spacing extends WPPinMasterLite_Options {
 
     public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
       parent::__construct( $field, $value, $unique, $where, $parent );

@@ -7,7 +7,7 @@
  * @version 1.0.0
  *
  */
-class PinMaster extends PinMaster_Abstract {
+class WPPinMasterLite extends WPPinMasterLite_Abstract {
 
   /**
    *

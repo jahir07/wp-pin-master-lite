@@ -1,5 +1,5 @@
 <?php
-namespace Pin_Master\Classes;
+namespace WP_Pin_Master_Lite\Classes;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -71,8 +71,9 @@ class Assets {
         // after dev minified version active for faster load
         $scripts = [
             'pin-master-vendor' => [
-                'src'       => WPPML_ASSETS . '/js/pin-master.min.js',
-                'version'   => filemtime( WPPML_DIR . 'assets/js/pin-master.min.js' ),
+                'deps'      => ['jquery'],
+                'src'       => WPPML_ASSETS . '/js/pin-master'.$prefix.'.js',
+                'version'   => filemtime( WPPML_DIR . 'assets/js/pin-master'.$prefix.'.js' ),
                 'in_footer' => true
             ],
         ];
@@ -87,10 +88,11 @@ class Assets {
      * @return array
      */
     public function get_styles() {
+        $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $styles = [
             'pin-master-style' => [
-                'src' =>  WPPML_ASSETS . '/css/style.min.css'
+                'src' =>  WPPML_ASSETS . '/css/pin-master'.$prefix.'.css'
             ],
         ];
 

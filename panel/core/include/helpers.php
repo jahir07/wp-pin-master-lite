@@ -15,7 +15,7 @@ if ( ! function_exists( 'wppml_add_element' ) ) {
     $sub        = ( isset( $field['sub'] ) ) ? 'sub-': '';
     $unique     = ( isset( $unique ) ) ? $unique : '';
     $languages  = wppml_language_defaults();
-    $class      = 'PinMaster_Option_' . $field['type'];
+    $class      = 'WPPinMasterLite_Option_' . $field['type'];
     $wrap_class = ( isset( $field['wrap_class'] ) ) ? ' ' . $field['wrap_class'] : '';
     $el_class   = ( isset( $field['title'] ) ) ? sanitize_title( $field['title'] ) : 'no-title';
     $hidden     = ( isset( $field['show_only_language'] ) && ( $field['show_only_language'] != $languages['current'] ) ) ? ' hidden' : '';

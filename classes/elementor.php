@@ -1,5 +1,5 @@
 <?php
-namespace Pin_Master\Classes;
+namespace WP_Pin_Master_Lite\Classes;
 
 use Elementor\Controls_Manager;
 
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * summary
  */
-class WP_Pin_Master_Elements
+class WP_WP_Pin_Master_Lite_Elements
 {
 
 	public function __construct() {
@@ -37,4 +37,4 @@ class WP_Pin_Master_Elements
 
 }
 
-new WP_Pin_Master_Elements();
+new WP_WP_Pin_Master_Lite_Elements();

@@ -1,5 +1,5 @@
 <?php
-namespace Pin_Master\Classes;
+namespace WP_Pin_Master_Lite\Classes;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -33,7 +33,6 @@ Class Frontend {
 
 		// scripts
 		$get_options = get_option('wppml_options');
-
 		if( array_key_exists('where_show', $get_options ) ) {
 			$where_show = $get_options['where_show'];
 			if( isset( $where_show ) && in_array('front', $where_show) && is_front_page() && is_page() ){
@@ -140,82 +139,82 @@ Class Frontend {
 	 */
 	public function print_header_styles() {
 		$options_val = get_option( 'wppml_options' );
-
-		
 		ob_start(); 
-		$pin_space = $options_val['pin_space'];
-		$top = ($pin_space['top']) ? $pin_space['top'] : '0';
-		$right = ($pin_space['right']) ? $pin_space['right'] : '0';
-		$bottom = ($pin_space['bottom']) ? $pin_space['bottom'] : '0';
-		$left = ($pin_space['left']) ? $pin_space['left'] : '0';
+		if(isset($options_val)){
+			$pin_space = $options_val['pin_space'];
+			$top = ($pin_space['top']) ? $pin_space['top'] : '0';
+			$right = ($pin_space['right']) ? $pin_space['right'] : '0';
+			$bottom = ($pin_space['bottom']) ? $pin_space['bottom'] : '0';
+			$left = ($pin_space['left']) ? $pin_space['left'] : '0';
 
-		$pin_icon_size = $options_val['pin_icon_size'];
-		$width = ($pin_icon_size['top']) ? $pin_icon_size['top'] : '0';
-		$height = ($pin_icon_size['left']) ? $pin_icon_size['left'] : '0';
-		?>
-		<style>
-			.pm-button.custom span {
-				<?php echo $custom_button_span_css; ?>
-			}
-			<?php if ( $options_val['pin_image'] === 'default' ) { ?>
-				.pm-button.icon span {
-					text-align: center;
-					margin-top: auto;
-					margin-bottom: auto;
-					align-items: center;
-					justify-content: center;
-					display: flex;
+			$pin_icon_size = $options_val['pin_icon_size'];
+			$width = ($pin_icon_size['top']) ? $pin_icon_size['top'] : '0';
+			$height = ($pin_icon_size['left']) ? $pin_icon_size['left'] : '0';
+			?>
+			<style>
+				.pm-button.custom span {
+					<?php echo $custom_button_span_css; ?>
 				}
-
-				<?php if( !empty($options_val['pin_font_size']) ) { ?>
-					a.pm-button.pm-button span:before {
-						font-size: <?php echo esc_attr($options_val['pin_font_size']) ?>px;
-					}
-				<?php } ?>
-
-				<?php if( !empty($options_val['pin_font_color']) ) { ?>
-					a.pm-button.pm-button {
-						color: <?php echo esc_attr($options_val['pin_font_color']) ?>;
-					}
-				<?php } ?>
-
-				<?php if( !empty($options_val['pin_bg_color']) ) { ?>
-					a.pm-button.pm-button {
-						background: <?php echo esc_attr($options_val['pin_bg_color']) ?>;
-					}
-				<?php } ?>
-
-				<?php if( !empty($options_val['pin_font_color_hover']) ) { ?>
-					a.pm-button.pm-button:hover {
-						color: <?php echo esc_attr($options_val['pin_font_color_hover']) ?>;
-					}
-				<?php } ?>
-
-				<?php if( !empty($options_val['pin_bg_color_hover']) ) { ?>
-					a.pm-button.pm-button:hover {
-						background: <?php echo esc_attr($options_val['pin_bg_color_hover']) ?>;
-					}
-				<?php } ?>
-
-				<?php if( !empty($options_val['pin_bg_color']) ) { ?>
-					a.pm-button.pm-button.pm-button {
-						margin: <?php echo esc_attr($top) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($right) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($bottom) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($left) ?><?php echo $pin_space['unit'] ?>;
-					}
-				<?php } ?>
-
-				<?php if( !empty($pin_icon_size) ) { ?>
-					a.pm-button.pm-button.pm-button {
-						width: <?php echo esc_attr($width) ?><?php echo $pin_icon_size['unit'] ?>;
-						height: <?php echo esc_attr($height) ?><?php echo $pin_icon_size['unit'] ?>;
+				<?php if ( $options_val['pin_image'] === 'default' ) { ?>
+					.pm-button.icon span {
+						text-align: center;
+						margin-top: auto;
+						margin-bottom: auto;
 						align-items: center;
-						display: flex !important;
 						justify-content: center;
+						display: flex;
 					}
-				<?php } ?>
 
-			<?php } ?>
-		</style>
-		<?php
+					<?php if( !empty($options_val['pin_font_size']) ) { ?>
+						a.pm-button.pm-button span:before {
+							font-size: <?php echo esc_attr($options_val['pin_font_size']) ?>px;
+						}
+					<?php } ?>
+
+					<?php if( !empty($options_val['pin_font_color']) ) { ?>
+						a.pm-button.pm-button span:before{
+							color: <?php echo esc_attr($options_val['pin_font_color']) ?>;
+						}
+					<?php } ?>
+
+					<?php if( !empty($options_val['pin_bg_color']) ) { ?>
+						a.pm-button.pm-button {
+							background: <?php echo esc_attr($options_val['pin_bg_color']) ?>;
+						}
+					<?php } ?>
+
+					<?php if( !empty($options_val['pin_font_color_hover']) ) { ?>
+						a.pm-button.pm-button:hover span:before {
+							color: <?php echo esc_attr($options_val['pin_font_color_hover']) ?>;
+						}
+					<?php } ?>
+
+					<?php if( !empty($options_val['pin_bg_color_hover']) ) { ?>
+						a.pm-button.pm-button:hover {
+							background: <?php echo esc_attr($options_val['pin_bg_color_hover']) ?>;
+						}
+					<?php } ?>
+
+					<?php if( !empty($pin_space) ) { ?>
+						a.pm-button.pm-button.pm-button {
+							margin: <?php echo esc_attr($top) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($right) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($bottom) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($left) ?><?php echo $pin_space['unit'] ?>;
+						}
+					<?php } ?>
+
+					<?php if( !empty($pin_icon_size) ) { ?>
+						a.pm-button.pm-button.pm-button {
+							width: <?php echo esc_attr($width) ?><?php echo $pin_icon_size['unit'] ?>;
+							height: <?php echo esc_attr($height) ?><?php echo $pin_icon_size['unit'] ?>;
+							align-items: center;
+							display: flex !important;
+							justify-content: center;
+						}
+					<?php } ?>
+
+				<?php } ?>
+			</style>
+			<?php
+		}
 		echo ob_get_clean();
 	}
 

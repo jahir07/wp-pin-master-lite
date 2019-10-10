@@ -37,22 +37,22 @@ Domain Path: /languages
  * **********************************************************************
  */
 
-namespace Pin_Master;
+namespace WP_Pin_Master_Lite;
 
-use Pin_Master\Classes\Assets;
-use Pin_Master\Classes\Frontend;
-use Pin_Master\Classes\Widgets;
+use WP_Pin_Master_Lite\Classes\Assets;
+use WP_Pin_Master_Lite\Classes\Frontend;
+use WP_Pin_Master_Lite\Classes\Widgets;
 
 // don't call the file directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
 /**
- * Pin_Master class
+ * WP_Pin_Master_Lite class
  * @since  1.0
- * @class Pin_Master The class that holds the entire Pin_Master plugin
+ * @class WP_Pin_Master_Lite The class that holds the entire WP_Pin_Master_Lite plugin
  */
-final class Pin_Master {
+final class WP_Pin_Master_Lite {
 
     /**
      * Plugin version
@@ -78,7 +78,7 @@ final class Pin_Master {
     private $container = array();
 
     /**
-     * Constructor for the Pin_Master class
+     * Constructor for the WP_Pin_Master_Lite class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -112,16 +112,16 @@ final class Pin_Master {
 
 
     /**
-     * Initializes the Pin_Master() class
+     * Initializes the WP_Pin_Master_Lite() class
      *
-     * Checks for an existing Pin_Master() instance
+     * Checks for an existing WP_Pin_Master_Lite() instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new Pin_Master();
+            $instance = new WP_Pin_Master_Lite();
         }
 
         return $instance;
@@ -329,7 +329,7 @@ final class Pin_Master {
 
 
 
-} // Pin_Master
+} // WP_Pin_Master_Lite
 
 /**
  * Load wp_pin_master Plugin when all plugins loaded
@@ -337,7 +337,7 @@ final class Pin_Master {
  * @return void
  */
 function wp_pin_master() {
-    return Pin_Master::init();
+    return WP_Pin_Master_Lite::init();
 }
 
 // Lets Play :)

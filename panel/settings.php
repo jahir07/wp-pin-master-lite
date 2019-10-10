@@ -14,17 +14,6 @@ $settings           = array(
 
 $options        = array();
 
-$args = array(
- 'public'   => true,
- '_builtin' => false
-);
-$output = 'names'; 
-$operator = 'and'; 
-$post_types = get_post_types( $args, $output, $operator ); 
-foreach ( $post_types  as $post_type ) {
- $cpt_options[ $post_type ] = $post_type;
-}
-
 
 /*================================
 =            pinterest            =
@@ -260,7 +249,6 @@ $options[]      = array(
     'id'     => 'where_show_cpt',
     'type'    => 'select',
     'title'   => __( 'Custop Post Type : Pinterest Active On?', 'pin-master' ),
-    'options' => $cpt_options,
     'default_option' => 'Pro Only',
     'class'         => 'chosen',
     'attributes'    => array(
@@ -318,4 +306,4 @@ $options[]      = array(
 
 /*=====  End of advance settings  ======*/
 
-PinMaster::instance( $settings, $options );
+WPPinMasterLite::instance( $settings, $options );

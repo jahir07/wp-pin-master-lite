@@ -7,7 +7,7 @@
  * @version 1.0.0
  *
  */
-abstract class PinMaster_Options extends PinMaster_Abstract {
+abstract class WPPinMasterLite_Options extends WPPinMasterLite_Abstract {
 
   public function __construct( $field = array(), $value = '', $unique = '', $where = '', $parent = '' ) {
     $this->field      = $field;
@@ -214,7 +214,7 @@ abstract class PinMaster_Options extends PinMaster_Abstract {
           unset( $cache_field['multilang'] );
           $cache_field['name'] = $this->element_name( '['. $key .']', true );
 
-          $class = 'PinMaster_Option_' . $this->field['type'];
+          $class = 'WPPinMasterLite_Option_' . $this->field['type'];
           $element = new $class( $cache_field, $value, $this->unique );
 
           ob_start();

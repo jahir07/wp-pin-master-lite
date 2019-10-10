@@ -7,7 +7,7 @@
  * @version 1.0.0
  *
  */
-class PinMaster_Option_Image extends PinMaster_Options {
+class WPPinMasterLite_Option_Image extends WPPinMasterLite_Options {
 
   public function __construct( $field, $value = '', $unique = '' ) {
     parent::__construct( $field, $value, $unique );

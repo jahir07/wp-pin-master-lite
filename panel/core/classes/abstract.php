@@ -8,7 +8,7 @@
  * @version 1.0.0
  *
  */
-abstract class PinMaster_Abstract {
+abstract class WPPinMasterLite_Abstract {
 
 	public function __construct() {
 

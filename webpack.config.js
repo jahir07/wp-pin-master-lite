@@ -13,14 +13,13 @@ module.exports = function (env, options) {
   const entry = {
    'extend-editor' : './_dev/js/guten-block/index.js',
    'pin-master' : './_dev/js/index.js',
-   'style': './_dev/js/style.js'
  };
 
  const paths = {
-  css: 'assets/css/',
-  images: 'assets/images/',
-  fonts: 'assets/fonts/',
-  js: 'assets/js/',
+  css: 'css/',
+  images: 'images/',
+  fonts: 'fonts/',
+  js: 'js/',
   lang: 'languages/',
 };
 
@@ -62,8 +61,9 @@ const config = {
   mode,
   entry,
   output: {
-    path: path.join( __dirname, '/' ),
+    path: path.join( __dirname, 'assets/' ),
     filename: `${ paths.js }[name]${ extensionPrefix }.js`,
+    publicPath: '../'
   },
   module: {
     rules: [
