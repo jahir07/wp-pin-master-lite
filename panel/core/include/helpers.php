@@ -178,11 +178,11 @@ if ( ! function_exists( 'wppml_get_var' ) ) {
   function wppml_get_var( $var, $default = '' ) {
 
     if( isset( $_POST[$var] ) ) {
-      return $_POST[$var];
+      return esc_html($_POST[$var]);
     }
 
     if( isset( $_GET[$var] ) ) {
-      return $_GET[$var];
+      return esc_html($_GET[$var]);
     }
 
     return $default;
@@ -202,11 +202,11 @@ if ( ! function_exists( 'wppml_get_vars' ) ) {
   function wppml_get_vars( $var, $depth, $default = '' ) {
 
     if( isset( $_POST[$var][$depth] ) ) {
-      return $_POST[$var][$depth];
+      return esc_html($_POST[$var][$depth]);
     }
 
     if( isset( $_GET[$var][$depth] ) ) {
-      return $_GET[$var][$depth];
+      return esc_html($_GET[$var][$depth]);
     }
 
     return $default;

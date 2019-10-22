@@ -302,7 +302,7 @@ class WPPinMasterLite extends WPPinMasterLite_Abstract {
 
     echo '<div class="pm-framework pm-option-framework">';
 
-      echo '<form method="post" action="options.php" enctype="multipart/form-data" id="csframework_form">';
+      echo '<form method="post" action="options.php" enctype="multipart/form-data" id="pmframework_form">';
       echo '<input type="hidden" class="pm-reset" name="wppml_section_id" value="'. $section_id .'" />';
 
       if( $this->settings['ajax_save'] !== true && ! empty( $transient['errors'] ) ) {

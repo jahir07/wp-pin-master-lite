@@ -612,7 +612,7 @@
 
           $this.prop('disabled', true).attr('value', $text);
 
-          var serializedOptions = $('#csframework_form').serialize();
+          var serializedOptions = $('#pmframework_form').serialize();
 
           $.post( 'options.php', serializedOptions ).error( function() {
             alert('Error, Please try again.');
