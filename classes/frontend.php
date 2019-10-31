@@ -152,9 +152,6 @@ Class Frontend {
 			$height = ($pin_icon_size['left']) ? $pin_icon_size['left'] : '0';
 			?>
 			<style>
-				.pm-button.custom span {
-					<?php echo $custom_button_span_css; ?>
-				}
 				<?php if ( $options_val['pin_image'] === 'default' ) { ?>
 					.pm-button.icon span {
 						text-align: center;
