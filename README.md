@@ -1,13 +1,6 @@
 # WP Pin Master Lite
 
-WP Pin Master Lite - Plugin is a handy plugin for blogger, especially affiliate marketer, recipe blogger, Traveller. 
-
-Pin it button on image.
-Put it Button On hover
-Share Image meta description into pinterest
-Pinterest profile widget.
-
-This is very easy to setup and use plugin, Just Install and Go Pin Master settings to get awesome settings option. 
+WP Pin Master Lite - is a handy pinterest WordPress plugin for blogger, especially affiliate marketer, recipe blogger, Traveller etc. Boost your blog post with Pin it button on image which fetch data from image alt tag, captions. Its support Gutenberg editor, Elementor plugin also. This is very easy to setup and use plugin, Just Install and Go Pin Master settings to get awesome settings. 
 
 ## FREE FEATURES:
 1. Pin it button for images. 
