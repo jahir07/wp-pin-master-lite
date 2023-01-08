@@ -1,38 +1,35 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access pages directly.
 /**
  *
  * Field: Image
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
 class WPPinMasterLite_Option_Image extends WPPinMasterLite_Options {
 
-  public function __construct( $field, $value = '', $unique = '' ) {
-    parent::__construct( $field, $value, $unique );
-  }
+	public function __construct( $field, $value = '', $unique = '' ) {
+		parent::__construct( $field, $value, $unique );
+	}
 
-  public function output(){
+	public function output() {
+		echo $this->element_before();
 
-    echo $this->element_before();
+		$preview = '';
+		$value   = $this->element_value();
+		$add     = ( ! empty( $this->field['add_title'] ) ) ? $this->field['add_title'] : esc_html__( 'Add Image', 'pin-master' );
+		$hidden  = ( empty( $value ) ) ? ' hidden' : '';
 
-    $preview = '';
-    $value   = $this->element_value();
-    $add     = ( ! empty( $this->field['add_title'] ) ) ? $this->field['add_title'] : esc_html__( 'Add Image', 'pin-master' );
-    $hidden  = ( empty( $value ) ) ? ' hidden' : '';
+		if ( ! empty( $value ) ) {
+			$attachment = wp_get_attachment_image_src( $value, 'thumbnail' );
+			$preview    = $attachment[0];
+		}
 
-    if( ! empty( $value ) ) {
-      $attachment = wp_get_attachment_image_src( $value, 'thumbnail' );
-      $preview    = $attachment[0];
-    }
+		echo '<div class="pm-image-preview' . $hidden . '"><div class="pm-preview"><i class="fa fa-times pm-remove"></i><img src="' . $preview . '" alt="preview" /></div></div>';
+		echo '<a href="#" class="button button-primary pm-add">' . $add . '</a>';
+		echo '<input type="text" name="' . $this->element_name() . '" value="' . $this->element_value() . '"' . $this->element_class() . $this->element_attributes() . '/>';
 
-    echo '<div class="pm-image-preview'. $hidden .'"><div class="pm-preview"><i class="fa fa-times pm-remove"></i><img src="'. $preview .'" alt="preview" /></div></div>';
-    echo '<a href="#" class="button button-primary pm-add">'. $add .'</a>';
-    echo '<input type="text" name="'. $this->element_name() .'" value="'. $this->element_value() .'"'. $this->element_class() . $this->element_attributes() .'/>';
-
-    echo $this->element_after();
-
-  }
-
+		echo $this->element_after();
+	}
 }

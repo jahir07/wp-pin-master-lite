@@ -1,17 +1,19 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access pages directly.
 /**
  *
  * Text sanitize
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_text' ) ) {
-  function wppml_sanitize_text( $value, $field ) {
-    return wp_filter_nohtml_kses( $value );
-  }
-  add_filter( 'wppml_sanitize_text', 'wppml_sanitize_text', 10, 2 );
+if ( ! function_exists( 'wppml_sanitize_text' ) ) {
+
+	function wppml_sanitize_text( $value, $field ) {
+		return wp_filter_nohtml_kses( $value );
+	}
+
+	add_filter( 'wppml_sanitize_text', 'wppml_sanitize_text', 10, 2 );
 }
 
 /**
@@ -20,16 +22,15 @@ if( ! function_exists( 'wppml_sanitize_text' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_textarea' ) ) {
-  function wppml_sanitize_textarea( $value ) {
+if ( ! function_exists( 'wppml_sanitize_textarea' ) ) {
 
-    global $allowedposttags;
-    return wp_kses( $value, $allowedposttags );
+	function wppml_sanitize_textarea( $value ) {
+		global $allowedposttags;
+		return wp_kses( $value, $allowedposttags );
+	}
 
-  }
-  add_filter( 'wppml_sanitize_textarea', 'wppml_sanitize_textarea' );
+	add_filter( 'wppml_sanitize_textarea', 'wppml_sanitize_textarea' );
 }
 
 /**
@@ -39,24 +40,23 @@ if( ! function_exists( 'wppml_sanitize_textarea' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_checkbox' ) ) {
-  function wppml_sanitize_checkbox( $value ) {
+if ( ! function_exists( 'wppml_sanitize_checkbox' ) ) {
 
-    if( ! empty( $value ) && $value == 1 ) {
-      $value = true;
-    }
+	function wppml_sanitize_checkbox( $value ) {
+		if ( ! empty( $value ) && $value == 1 ) {
+			$value = true;
+		}
 
-    if( empty( $value ) ) {
-      $value = false;
-    }
+		if ( empty( $value ) ) {
+			$value = false;
+		}
 
-    return $value;
+		return $value;
+	}
 
-  }
-  add_filter( 'wppml_sanitize_checkbox', 'wppml_sanitize_checkbox' );
-  add_filter( 'wppml_sanitize_switcher', 'wppml_sanitize_checkbox' );
+	add_filter( 'wppml_sanitize_checkbox', 'wppml_sanitize_checkbox' );
+	add_filter( 'wppml_sanitize_switcher', 'wppml_sanitize_checkbox' );
 }
 
 /**
@@ -67,25 +67,24 @@ if( ! function_exists( 'wppml_sanitize_checkbox' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_image_select' ) ) {
-  function wppml_sanitize_image_select( $value ) {
+if ( ! function_exists( 'wppml_sanitize_image_select' ) ) {
 
-    if( isset( $value ) && is_array( $value ) ) {
-      if( count( $value ) ) {
-        $value = $value;
-      } else {
-        $value = $value[0];
-      }
-    } else if ( empty( $value ) ) {
-      $value = '';
-    }
+	function wppml_sanitize_image_select( $value ) {
+		if ( isset( $value ) && is_array( $value ) ) {
+			if ( count( $value ) ) {
+				$value = $value;
+			} else {
+				$value = $value[0];
+			}
+		} elseif ( empty( $value ) ) {
+			$value = '';
+		}
 
-    return $value;
+		return $value;
+	}
 
-  }
-  add_filter( 'wppml_sanitize_image_select', 'wppml_sanitize_image_select' );
+	add_filter( 'wppml_sanitize_image_select', 'wppml_sanitize_image_select' );
 }
 
 /**
@@ -95,13 +94,14 @@ if( ! function_exists( 'wppml_sanitize_image_select' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_group' ) ) {
-  function wppml_sanitize_group( $value ) {
-    return ( empty( $value ) ) ? '' : $value;
-  }
-  add_filter( 'wppml_sanitize_group', 'wppml_sanitize_group' );
+if ( ! function_exists( 'wppml_sanitize_group' ) ) {
+
+	function wppml_sanitize_group( $value ) {
+		return ( empty( $value ) ) ? '' : $value;
+	}
+
+	add_filter( 'wppml_sanitize_group', 'wppml_sanitize_group' );
 }
 
 /**
@@ -110,13 +110,14 @@ if( ! function_exists( 'wppml_sanitize_group' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_title' ) ) {
-  function wppml_sanitize_title( $value ) {
-    return sanitize_title( $value );
-  }
-  add_filter( 'wppml_sanitize_title', 'wppml_sanitize_title' );
+if ( ! function_exists( 'wppml_sanitize_title' ) ) {
+
+	function wppml_sanitize_title( $value ) {
+		return sanitize_title( $value );
+	}
+
+	add_filter( 'wppml_sanitize_title', 'wppml_sanitize_title' );
 }
 
 /**
@@ -125,11 +126,12 @@ if( ! function_exists( 'wppml_sanitize_title' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if( ! function_exists( 'wppml_sanitize_clean' ) ) {
-  function wppml_sanitize_clean( $value ) {
-    return $value;
-  }
-  add_filter( 'wppml_sanitize_clean', 'wppml_sanitize_clean', 10, 2 );
+if ( ! function_exists( 'wppml_sanitize_clean' ) ) {
+
+	function wppml_sanitize_clean( $value ) {
+		return $value;
+	}
+
+	add_filter( 'wppml_sanitize_clean', 'wppml_sanitize_clean', 10, 2 );
 }

@@ -768,7 +768,7 @@
             type: 'POST',
             url: ajaxurl,
             data: {
-              action: 'pm-get-icons'
+              action: 'pm_get_icons'
             },
             success: function( content ) {
 

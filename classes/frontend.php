@@ -2,20 +2,21 @@
 namespace WP_Pin_Master_Lite\Classes;
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Load class which responsible for frontend only
  *
- * @return void 
+ * @return void
  */
 
-Class Frontend {
+class Frontend {
 
 	private $basic_options;
 
 	function __construct() {
-
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_script' ] );
 		add_action( 'wp_head', array( $this, 'print_header_styles' ) );
 
@@ -25,44 +26,44 @@ Class Frontend {
 	/**
 	 * enqueue fontend scripts & styles
 	 *
-	 * @return void 
+	 * @return void
 	 */
 	public function enqueue_script() {
 		// styles
-		wp_enqueue_style('pin-master-style');
+		wp_enqueue_style( 'pin-master-style' );
 
 		// scripts
-		$get_options = get_option('wppml_options');
-		if( array_key_exists('where_show', $get_options ) ) {
+		$get_options = get_option( 'wppml_options' );
+		if ( array_key_exists( 'where_show', $get_options ) ) {
 			$where_show = $get_options['where_show'];
-			if( isset( $where_show ) && in_array('front', $where_show) && is_front_page() && is_page() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('home', $where_show) && is_home() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('single', $where_show) && is_single() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('page', $where_show) && is_page() && !is_front_page() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('archive', $where_show) && is_archive() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('search', $where_show) && is_search() ){
-				wp_enqueue_script('pin-master-vendor');
-			} elseif( isset( $where_show ) && in_array('category', $where_show) && is_category() ){
-				wp_enqueue_script('pin-master-vendor');
-			} 
+			if ( isset( $where_show ) && in_array( 'front', $where_show ) && is_front_page() && is_page() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'home', $where_show ) && is_home() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'single', $where_show ) && is_single() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'page', $where_show ) && is_page() && ! is_front_page() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'archive', $where_show ) && is_archive() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'search', $where_show ) && is_search() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			} elseif ( isset( $where_show ) && in_array( 'category', $where_show ) && is_category() ) {
+				wp_enqueue_script( 'pin-master-vendor' );
+			}
 		}
-		if( array_key_exists('where_show_cpt', $get_options )) { 
+		if ( array_key_exists( 'where_show_cpt', $get_options ) ) {
 			$where_show_cpt = $get_options['where_show_cpt'];
 			$args = array(
 				'public'   => true,
-				'_builtin' => false
+				'_builtin' => false,
 			);
-			$output = 'names'; 
-			$operator = 'and'; 
-			$post_types = get_post_types( $args, $output, $operator ); 
+			$output = 'names';
+			$operator = 'and';
+			$post_types = get_post_types( $args, $output, $operator );
 			foreach ( $post_types  as $post_type ) {
-				if( isset( $where_show_cpt ) && in_array($post_type, $where_show_cpt) && ( "$post_type" == get_post_type() ) ){
-					wp_enqueue_script('pin-master-vendor');
+				if ( isset( $where_show_cpt ) && in_array( $post_type, $where_show_cpt ) && ( "$post_type" == get_post_type() ) ) {
+					wp_enqueue_script( 'pin-master-vendor' );
 				}
 			}
 		}
@@ -82,10 +83,10 @@ Class Frontend {
 	/**
 	 * Plugin settings data
 	 *
-	 * @return void 
+	 * @return void
 	 */
-	public function get_plugins_settings(){
-		$options = get_option('wppml_options');
+	public function get_plugins_settings() {
+		$options = get_option( 'wppml_options' );
 		return $options;
 	}
 
@@ -94,10 +95,10 @@ Class Frontend {
 	 *
 	 * @param Object
 	 * @since 1.0
-	 * @return array 
+	 * @return array
 	 */
-	public function default_options(){
-		$options= array( 
+	public function default_options() {
+		$options = array(
 			'image_selector' => '.wppml_container img',
 			'disabled_classes' => 'wp-smiley;nopin',
 			'min_image_width' => 200,
@@ -139,17 +140,17 @@ Class Frontend {
 	 */
 	public function print_header_styles() {
 		$options_val = get_option( 'wppml_options' );
-		ob_start(); 
-		if(isset($options_val)){
+		ob_start();
+		if ( isset( $options_val ) ) {
 			$pin_space = $options_val['pin_space'];
-			$top = ($pin_space['top']) ? $pin_space['top'] : '0';
-			$right = ($pin_space['right']) ? $pin_space['right'] : '0';
-			$bottom = ($pin_space['bottom']) ? $pin_space['bottom'] : '0';
-			$left = ($pin_space['left']) ? $pin_space['left'] : '0';
+			$top = ( $pin_space['top'] ) ? $pin_space['top'] : '0';
+			$right = ( $pin_space['right'] ) ? $pin_space['right'] : '0';
+			$bottom = ( $pin_space['bottom'] ) ? $pin_space['bottom'] : '0';
+			$left = ( $pin_space['left'] ) ? $pin_space['left'] : '0';
 
 			$pin_icon_size = $options_val['pin_icon_size'];
-			$width = ($pin_icon_size['top']) ? $pin_icon_size['top'] : '0';
-			$height = ($pin_icon_size['left']) ? $pin_icon_size['left'] : '0';
+			$width = ( $pin_icon_size['top'] ) ? $pin_icon_size['top'] : '0';
+			$height = ( $pin_icon_size['left'] ) ? $pin_icon_size['left'] : '0';
 			?>
 			<style>
 				<?php if ( $options_val['pin_image'] === 'default' ) { ?>
@@ -162,46 +163,46 @@ Class Frontend {
 						display: flex;
 					}
 
-					<?php if( !empty($options_val['pin_font_size']) ) { ?>
+					<?php if ( ! empty( $options_val['pin_font_size'] ) ) { ?>
 						a.pm-button.pm-button span:before {
-							font-size: <?php echo esc_attr($options_val['pin_font_size']) ?>px;
+							font-size: <?php echo esc_attr( $options_val['pin_font_size'] ); ?>px;
 						}
 					<?php } ?>
 
-					<?php if( !empty($options_val['pin_font_color']) ) { ?>
+					<?php if ( ! empty( $options_val['pin_font_color'] ) ) { ?>
 						a.pm-button.pm-button span:before{
-							color: <?php echo esc_attr($options_val['pin_font_color']) ?>;
+							color: <?php echo esc_attr( $options_val['pin_font_color'] ); ?>;
 						}
 					<?php } ?>
 
-					<?php if( !empty($options_val['pin_bg_color']) ) { ?>
+					<?php if ( ! empty( $options_val['pin_bg_color'] ) ) { ?>
 						a.pm-button.pm-button {
-							background: <?php echo esc_attr($options_val['pin_bg_color']) ?>;
+							background: <?php echo esc_attr( $options_val['pin_bg_color'] ); ?>;
 						}
 					<?php } ?>
 
-					<?php if( !empty($options_val['pin_font_color_hover']) ) { ?>
+					<?php if ( ! empty( $options_val['pin_font_color_hover'] ) ) { ?>
 						a.pm-button.pm-button:hover span:before {
-							color: <?php echo esc_attr($options_val['pin_font_color_hover']) ?>;
+							color: <?php echo esc_attr( $options_val['pin_font_color_hover'] ); ?>;
 						}
 					<?php } ?>
 
-					<?php if( !empty($options_val['pin_bg_color_hover']) ) { ?>
+					<?php if ( ! empty( $options_val['pin_bg_color_hover'] ) ) { ?>
 						a.pm-button.pm-button:hover {
-							background: <?php echo esc_attr($options_val['pin_bg_color_hover']) ?>;
+							background: <?php echo esc_attr( $options_val['pin_bg_color_hover'] ); ?>;
 						}
 					<?php } ?>
 
-					<?php if( !empty($pin_space) ) { ?>
+					<?php if ( ! empty( $pin_space ) ) { ?>
 						a.pm-button.pm-button.pm-button {
-							margin: <?php echo esc_attr($top) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($right) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($bottom) ?><?php echo $pin_space['unit'] ?> <?php echo esc_attr($left) ?><?php echo $pin_space['unit'] ?>;
+							margin: <?php echo esc_attr( $top ); ?><?php echo $pin_space['unit']; ?> <?php echo esc_attr( $right ); ?><?php echo $pin_space['unit']; ?> <?php echo esc_attr( $bottom ); ?><?php echo $pin_space['unit']; ?> <?php echo esc_attr( $left ); ?><?php echo $pin_space['unit']; ?>;
 						}
 					<?php } ?>
 
-					<?php if( !empty($pin_icon_size) ) { ?>
+					<?php if ( ! empty( $pin_icon_size ) ) { ?>
 						a.pm-button.pm-button.pm-button {
-							width: <?php echo esc_attr($width) ?><?php echo $pin_icon_size['unit'] ?>;
-							height: <?php echo esc_attr($height) ?><?php echo $pin_icon_size['unit'] ?>;
+							width: <?php echo esc_attr( $width ); ?><?php echo $pin_icon_size['unit']; ?>;
+							height: <?php echo esc_attr( $height ); ?><?php echo $pin_icon_size['unit']; ?>;
 							align-items: center;
 							display: flex !important;
 							justify-content: center;
@@ -220,32 +221,32 @@ Class Frontend {
 	 *
 	 * @param Object
 	 * @since 1.0
-	 * @return mix 
+	 * @return mix
 	 */
 	private function add_conditional_filters() {
-		add_filter( 'the_content', [ $this, 'the_content'], 10 );
+		add_filter( 'the_content', [ $this, 'the_content' ], 10 );
 	}
 
-	// This Function's concept was from jQuery Pin It Button For Images plugin
+	// This Function's concept was from jQuery Pin It Button For Images plugin.
 	function the_content( $content ) {
-		
 		global $post;
 
 		$default = $this->default_options();
-		if( isset($default['description_option']) ) { 
+		if ( isset( $default['description_option'] ) ) {
 			$default_desc = $default['description_option'];
 		};
-		$basic_options = get_option('wppml_options');
+		$basic_options = get_option( 'wppml_options' );
 
-		if( isset($basic_options['description_option']) ) { 
+		if ( isset( $basic_options['description_option'] ) ) {
 			$basic_desc = $basic_options['description_option'];
 		};
 
-		$img_desc = isset($basic_desc) ? $basic_desc : $default_desc;
+		$img_desc = isset( $basic_desc ) ? $basic_desc : $default_desc;
 
-		if(!empty($basic_options) )
+		if ( ! empty( $basic_options ) ) {
 			$get_description = in_array( 'img_description', $img_desc );
-		$get_caption     = in_array( 'img_caption', $img_desc );
+		}
+		$get_caption = in_array( 'img_caption', $img_desc );
 
 		$imgPattern  = '/<img[^>]*>/i';
 		$attrPattern = '/ ([-\w]+)[ ]*=[ ]*([\"\'])(.*?)\2/i';
@@ -253,7 +254,6 @@ Class Frontend {
 		preg_match_all( $imgPattern, $content, $images, PREG_SET_ORDER );
 
 		foreach ( $images as $img ) {
-
 			preg_match_all( $attrPattern, $img[0], $attributes, PREG_SET_ORDER );
 
 			$new_img = '<img';
@@ -276,10 +276,10 @@ Class Frontend {
 				}
 			}
 
-			$att = $get_description || $get_caption ? $this->get_attachment( $id, $src ): null;
+			$att = $get_description || $get_caption ? $this->get_attachment( $id, $src ) : null;
 			if ( $att != null ) {
-				$new_img .= $get_description ? sprintf( ' data-pm-description="%s"', esc_attr( $att->post_content ) ): '';
-				$new_img .= $get_caption ? sprintf( ' data-pm-caption="%s"', esc_attr( $att->post_excerpt ) ): '';
+				$new_img .= $get_description ? sprintf( ' data-pm-description="%s"', esc_attr( $att->post_content ) ) : '';
+				$new_img .= $get_caption ? sprintf( ' data-pm-caption="%s"', esc_attr( $att->post_excerpt ) ) : '';
 			}
 
 			$new_img .= sprintf( ' data-pm-post-excerpt="%s"', esc_attr( wp_kses( $post->post_excerpt, array() ) ) );
@@ -333,11 +333,12 @@ Class Frontend {
 	 */
 	function get_attachment( $id, $src ) {
 		$result = is_numeric( $id ) ? get_post( $id ) : null;
-		if ( $result )
+		if ( $result ) {
 			return $result;
+		}
 
 		$id = $this->get_attachment_id_by_url( $src );
-		return  $id !== 0 ? get_post( $id ) : null;
+		return $id !== 0 ? get_post( $id ) : null;
 	}
 
 	/**
@@ -361,7 +362,7 @@ Class Frontend {
 						'compare' => 'LIKE',
 						'key'     => '_wp_attachment_metadata',
 					),
-				)
+				),
 			);
 			$query      = new \WP_Query( $query_args );
 			if ( $query->have_posts() ) {
@@ -379,5 +380,4 @@ Class Frontend {
 
 		return $attachment_id;
 	}
-
 }
