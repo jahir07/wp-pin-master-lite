@@ -92,7 +92,13 @@ class Frontend {
 		wp_enqueue_style( 'pin-master-style' );
 		wp_enqueue_script( 'pin-master-frontend' );
 
-		wp_localize_script( 'pin-master-frontend', 'pinMasterOptions', $this->frontend_settings( $options ) );
+		// wp_json_encode (not wp_localize_script) so numeric values keep
+		// their type — the positioning math depends on it.
+		wp_add_inline_script(
+			'pin-master-frontend',
+			'var pinMasterOptions = ' . wp_json_encode( $this->frontend_settings( $options ) ) . ';',
+			'before'
+		);
 	}
 
 	/**
