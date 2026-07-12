@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Settings_Page {
 
-	const MENU_SLUG = 'wp-pin-master';
+	const MENU_SLUG = 'wp-pin-master-lite';
 
 	/**
 	 * Hook registration.
@@ -37,7 +37,7 @@ class Settings_Page {
 		 *
 		 * @param string $title Page title.
 		 */
-		return apply_filters( 'pin_master_settings_title', __( 'WP Pin Master', 'wp-pin-master' ) );
+		return apply_filters( 'pin_master_settings_title', __( 'WP Pin Master', 'wp-pin-master-lite' ) );
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Settings_Page {
 	public function register_menu() {
 		add_menu_page(
 			self::title(),
-			__( 'Pin Master', 'wp-pin-master' ),
+			__( 'Pin Master', 'wp-pin-master-lite' ),
 			'manage_options',
 			self::MENU_SLUG,
 			array( $this, 'render' ),

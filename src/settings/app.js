@@ -20,29 +20,29 @@ import Preview from './preview';
 const ENDPOINT = '/pin-master/v1/settings';
 
 const COMPARISON = [
-	[ __( 'Pin button on hover', 'wp-pin-master' ), true, true ],
-	[ __( 'Button colors, size, position & margins', 'wp-pin-master' ), true, true ],
-	[ __( 'Classic & modern button styles', 'wp-pin-master' ), true, true ],
-	[ __( 'Pinterest Follow & Board widgets', 'wp-pin-master' ), true, true ],
-	[ __( 'Elementor No-Pin control', 'wp-pin-master' ), true, true ],
-	[ __( 'Always-visible & touch-device buttons', 'wp-pin-master' ), false, true ],
-	[ __( 'Sidebar images or every image on the site', 'wp-pin-master' ), false, true ],
-	[ __( 'Icon picker & custom button image', 'wp-pin-master' ), false, true ],
-	[ __( 'Custom post type targeting', 'wp-pin-master' ), false, true ],
-	[ __( 'Per-image Pinterest description, Repin ID & No Pin', 'wp-pin-master' ), false, true ],
-	[ __( 'AI pin descriptions (Claude / OpenAI / Gemini)', 'wp-pin-master' ), false, true ],
-	[ __( 'AI alt text from the image itself', 'wp-pin-master' ), false, true ],
-	[ __( 'AI hashtag suggestions', 'wp-pin-master' ), false, true ],
-	[ __( 'Bulk AI generation for the media library', 'wp-pin-master' ), false, true ],
+	[ __( 'Pin button on hover', 'wp-pin-master-lite' ), true, true ],
+	[ __( 'Button colors, size, position & margins', 'wp-pin-master-lite' ), true, true ],
+	[ __( 'Classic & modern button styles', 'wp-pin-master-lite' ), true, true ],
+	[ __( 'Pinterest Follow & Board widgets', 'wp-pin-master-lite' ), true, true ],
+	[ __( 'Elementor No-Pin control', 'wp-pin-master-lite' ), true, true ],
+	[ __( 'Always-visible & touch-device buttons', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'Sidebar images or every image on the site', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'Icon picker & custom button image', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'Custom post type targeting', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'Per-image Pinterest description, Repin ID & No Pin', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'AI pin descriptions (Claude / OpenAI / Gemini)', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'AI alt text from the image itself', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'AI hashtag suggestions', 'wp-pin-master-lite' ), false, true ],
+	[ __( 'Bulk AI generation for the media library', 'wp-pin-master-lite' ), false, true ],
 ];
 
 const CompareMark = ( { yes } ) =>
 	yes ? (
-		<span className="pm-yes" aria-label={ __( 'Included', 'wp-pin-master' ) }>
+		<span className="pm-yes" aria-label={ __( 'Included', 'wp-pin-master-lite' ) }>
 			✓
 		</span>
 	) : (
-		<span className="pm-no" aria-label={ __( 'Not included', 'wp-pin-master' ) }>
+		<span className="pm-no" aria-label={ __( 'Not included', 'wp-pin-master-lite' ) }>
 			—
 		</span>
 	);
@@ -51,21 +51,21 @@ const UpsellTab = () => (
 	<Card>
 		<CardBody>
 			<div className="pin-master-upsell-hero">
-				<h2>{ __( 'Do more with WP Pin Master Pro', 'wp-pin-master' ) }</h2>
+				<h2>{ __( 'Do more with WP Pin Master Pro', 'wp-pin-master-lite' ) }</h2>
 				<p>
 					{ __(
 						'Everything in the free plugin, plus per-image Pinterest data and AI-generated content.',
-						'wp-pin-master'
+						'wp-pin-master-lite'
 					) }
 				</p>
 			</div>
 			<table className="pin-master-compare">
 				<thead>
 					<tr>
-						<th>{ __( 'Feature', 'wp-pin-master' ) }</th>
-						<th>{ __( 'Free', 'wp-pin-master' ) }</th>
+						<th>{ __( 'Feature', 'wp-pin-master-lite' ) }</th>
+						<th>{ __( 'Free', 'wp-pin-master-lite' ) }</th>
 						<th className="pin-master-compare-pro">
-							{ __( 'Pro', 'wp-pin-master' ) }
+							{ __( 'Pro', 'wp-pin-master-lite' ) }
 						</th>
 					</tr>
 				</thead>
@@ -90,9 +90,9 @@ const UpsellTab = () => (
 					target="_blank"
 					rel="noreferrer noopener"
 				>
-					{ __( 'Upgrade to Pro', 'wp-pin-master' ) }
+					{ __( 'Upgrade to Pro', 'wp-pin-master-lite' ) }
 				</Button>
-				<p>{ __( 'Bring your own AI API key — no extra subscription.', 'wp-pin-master' ) }</p>
+				<p>{ __( 'Bring your own AI API key — no extra subscription.', 'wp-pin-master-lite' ) }</p>
 			</div>
 		</CardBody>
 	</Card>
@@ -112,7 +112,7 @@ export default function App() {
 	useEffect( () => {
 		apiFetch( { path: ENDPOINT } )
 			.then( ( response ) => setValues( response.settings || {} ) )
-			.catch( ( err ) => setError( err.message || __( 'Failed to load settings.', 'wp-pin-master' ) ) );
+			.catch( ( err ) => setError( err.message || __( 'Failed to load settings.', 'wp-pin-master-lite' ) ) );
 	}, [] );
 
 	const save = async ( nextValues = values ) => {
@@ -126,9 +126,9 @@ export default function App() {
 				data: { settings: nextValues },
 			} );
 			setValues( response.settings || nextValues );
-			setSnackbar( __( 'Settings saved.', 'wp-pin-master' ) );
+			setSnackbar( __( 'Settings saved.', 'wp-pin-master-lite' ) );
 		} catch ( err ) {
-			setError( err.message || __( 'Saving failed.', 'wp-pin-master' ) );
+			setError( err.message || __( 'Saving failed.', 'wp-pin-master-lite' ) );
 		} finally {
 			setSaving( false );
 			window.setTimeout( () => setSnackbar( null ), 3000 );
@@ -148,7 +148,7 @@ export default function App() {
 			link.click();
 			URL.revokeObjectURL( url );
 		} catch ( err ) {
-			setError( err.message || __( 'Export failed.', 'wp-pin-master' ) );
+			setError( err.message || __( 'Export failed.', 'wp-pin-master-lite' ) );
 		}
 	};
 
@@ -167,10 +167,10 @@ export default function App() {
 				data: { settings },
 			} );
 			setValues( response.settings );
-			setSnackbar( __( 'Settings imported.', 'wp-pin-master' ) );
+			setSnackbar( __( 'Settings imported.', 'wp-pin-master-lite' ) );
 			window.setTimeout( () => setSnackbar( null ), 3000 );
 		} catch ( err ) {
-			setError( err.message || __( 'Import failed — is this a WP Pin Master export file?', 'wp-pin-master' ) );
+			setError( err.message || __( 'Import failed — is this a WP Pin Master export file?', 'wp-pin-master-lite' ) );
 		} finally {
 			event.target.value = '';
 		}
@@ -205,7 +205,7 @@ export default function App() {
 		return (
 			<div className="pin-master-field" key={ field.id }>
 				{ locked && (
-					<span className="pin-master-pro-badge">{ __( 'Pro', 'wp-pin-master' ) }</span>
+					<span className="pin-master-pro-badge">{ __( 'Pro', 'wp-pin-master-lite' ) }</span>
 				) }
 				<Renderer
 					field={ field }
@@ -236,7 +236,7 @@ export default function App() {
 						P
 					</span>
 					<h1>
-						{ config.title || __( 'WP Pin Master', 'wp-pin-master' ) }
+						{ config.title || __( 'WP Pin Master', 'wp-pin-master-lite' ) }
 						{ config.version && (
 							<span className="pin-master-version">v{ config.version }</span>
 						) }
@@ -244,10 +244,10 @@ export default function App() {
 				</div>
 				<div className="pin-master-header-actions">
 					<Button variant="tertiary" onClick={ exportSettings }>
-						{ __( 'Export', 'wp-pin-master' ) }
+						{ __( 'Export', 'wp-pin-master-lite' ) }
 					</Button>
 					<Button variant="tertiary" onClick={ () => importInput.current?.click() }>
-						{ __( 'Import', 'wp-pin-master' ) }
+						{ __( 'Import', 'wp-pin-master-lite' ) }
 					</Button>
 					<input
 						ref={ importInput }
@@ -257,7 +257,7 @@ export default function App() {
 						onChange={ importSettings }
 					/>
 					<Button variant="primary" isBusy={ saving } onClick={ () => save() }>
-						{ saving ? __( 'Saving…', 'wp-pin-master' ) : __( 'Save Changes', 'wp-pin-master' ) }
+						{ saving ? __( 'Saving…', 'wp-pin-master-lite' ) : __( 'Save Changes', 'wp-pin-master-lite' ) }
 					</Button>
 				</div>
 			</header>

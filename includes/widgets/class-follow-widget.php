@@ -22,10 +22,10 @@ class Follow_Widget extends \WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'wppml_pinterest_follow_button',
-			__( 'Pin Master: Pinterest Follower', 'wp-pin-master' ),
+			__( 'Pin Master: Pinterest Follower', 'wp-pin-master-lite' ),
 			array(
 				'classname'   => 'wppml_pinterest_follow_button',
-				'description' => esc_html__( 'Pinterest Follow button.', 'wp-pin-master' ),
+				'description' => esc_html__( 'Pinterest Follow button.', 'wp-pin-master-lite' ),
 			)
 		);
 	}
@@ -86,16 +86,16 @@ class Follow_Widget extends \WP_Widget {
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(
-				'title'              => __( 'Pinterest Follow', 'wp-pin-master' ),
+				'title'              => __( 'Pinterest Follow', 'wp-pin-master-lite' ),
 				'pinterest_user_url' => '',
 				'pinterest_name'     => 'Pinterest',
 			)
 		);
 
 		$fields = array(
-			'title'              => __( 'Title', 'wp-pin-master' ),
-			'pinterest_user_url' => __( 'Pinterest URL', 'wp-pin-master' ),
-			'pinterest_name'     => __( 'Pinterest Profile Name', 'wp-pin-master' ),
+			'title'              => __( 'Title', 'wp-pin-master-lite' ),
+			'pinterest_user_url' => __( 'Pinterest URL', 'wp-pin-master-lite' ),
+			'pinterest_name'     => __( 'Pinterest Profile Name', 'wp-pin-master-lite' ),
 		);
 
 		foreach ( $fields as $key => $label ) {

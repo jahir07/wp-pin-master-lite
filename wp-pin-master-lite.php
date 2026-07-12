@@ -10,7 +10,7 @@
  * Author URI:        https://www.xstheme.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wp-pin-master
+ * Text Domain:       wp-pin-master-lite
  * Domain Path:       /languages
  *
  * @package Pin_Master

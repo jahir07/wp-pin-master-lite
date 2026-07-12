@@ -70,7 +70,7 @@ final class Plugin {
 			esc_html(
 				sprintf(
 					/* translators: 1: required PHP version, 2: current PHP version */
-					__( 'WP Pin Master requires PHP %1$s or newer. You are running %2$s.', 'wp-pin-master' ),
+					__( 'WP Pin Master requires PHP %1$s or newer. You are running %2$s.', 'wp-pin-master-lite' ),
 					$this->min_php,
 					PHP_VERSION
 				)
@@ -257,7 +257,7 @@ final class Plugin {
 	 * Load the text domain.
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'wp-pin-master', false, dirname( plugin_basename( PIN_MASTER_FILE ) ) . '/languages/' );
+		load_plugin_textdomain( 'wp-pin-master-lite', false, dirname( plugin_basename( PIN_MASTER_FILE ) ) . '/languages/' );
 	}
 
 	/**

@@ -96,7 +96,7 @@ class Settings_Controller {
 
 		return new WP_Error(
 			'pin_master_forbidden',
-			__( 'You are not allowed to manage WP Pin Master settings.', 'wp-pin-master' ),
+			__( 'You are not allowed to manage WP Pin Master settings.', 'wp-pin-master-lite' ),
 			array( 'status' => rest_authorization_required_code() )
 		);
 	}
@@ -141,7 +141,7 @@ class Settings_Controller {
 	public function export_settings() {
 		return rest_ensure_response(
 			array(
-				'plugin'   => 'wp-pin-master',
+				'plugin'   => 'wp-pin-master-lite',
 				'version'  => PIN_MASTER_VERSION,
 				'exported' => gmdate( 'c' ),
 				'settings' => Options::get(),
@@ -161,7 +161,7 @@ class Settings_Controller {
 		if ( ! is_array( $settings ) || empty( $settings ) ) {
 			return new WP_Error(
 				'pin_master_bad_import',
-				__( 'The import file does not contain WP Pin Master settings.', 'wp-pin-master' ),
+				__( 'The import file does not contain WP Pin Master settings.', 'wp-pin-master-lite' ),
 				array( 'status' => 400 )
 			);
 		}

@@ -39,12 +39,12 @@ class Elementor {
 		$section->add_control(
 			'elementor_wp_pin_master',
 			array(
-				'label'        => __( 'WP Pin Master', 'wp-pin-master' ),
+				'label'        => __( 'WP Pin Master', 'wp-pin-master-lite' ),
 				'type'         => Controls_Manager::SELECT,
 				'default'      => 'nopin',
 				'options'      => array(
-					'nopin'  => __( 'No Pin', 'wp-pin-master' ),
-					'pin-it' => __( 'Yes Pin', 'wp-pin-master' ),
+					'nopin'  => __( 'No Pin', 'wp-pin-master-lite' ),
+					'pin-it' => __( 'Yes Pin', 'wp-pin-master-lite' ),
 				),
 				'prefix_class' => '',
 				'label_block'  => true,

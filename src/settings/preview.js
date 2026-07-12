@@ -97,12 +97,12 @@ export default function Preview( { values } ) {
 
 	return (
 		<div className="pin-master-preview">
-			<p className="pin-master-field-label">{ __( 'Live Preview', 'wp-pin-master' ) }</p>
+			<p className="pin-master-field-label">{ __( 'Live Preview', 'wp-pin-master-lite' ) }</p>
 			<div className="pin-master-preview-stage">
 				<span style={ buttonStyle }>{ inner }</span>
 			</div>
 			<p className="pin-master-field-help">
-				{ __( 'Approximation of the pin button over an image.', 'wp-pin-master' ) }
+				{ __( 'Approximation of the pin button over an image.', 'wp-pin-master-lite' ) }
 			</p>
 		</div>
 	);

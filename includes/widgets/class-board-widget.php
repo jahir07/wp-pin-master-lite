@@ -22,10 +22,10 @@ class Board_Widget extends \WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'wppml_pinterest_builder',
-			__( 'Pin Master: Pinterest Builder', 'wp-pin-master' ),
+			__( 'Pin Master: Pinterest Builder', 'wp-pin-master-lite' ),
 			array(
 				'classname'   => 'wppml_pinterest_builder',
-				'description' => esc_html__( 'Embed a Pinterest Pin, Board, or Profile.', 'wp-pin-master' ),
+				'description' => esc_html__( 'Embed a Pinterest Pin, Board, or Profile.', 'wp-pin-master-lite' ),
 			)
 		);
 	}
@@ -104,7 +104,7 @@ class Board_Widget extends \WP_Widget {
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(
-				'title'                  => __( 'Pinterest Board', 'wp-pin-master' ),
+				'title'                  => __( 'Pinterest Board', 'wp-pin-master-lite' ),
 				'builder_select'         => 'embedBoard',
 				'pinterest_user_url'     => '',
 				'pinterest_name'         => '',
@@ -115,17 +115,17 @@ class Board_Widget extends \WP_Widget {
 		);
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'wp-pin-master' ); ?>:</label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'wp-pin-master-lite' ); ?>:</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'builder_select' ) ); ?>"><?php esc_html_e( 'Widget Builder', 'wp-pin-master' ); ?>:</label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'builder_select' ) ); ?>"><?php esc_html_e( 'Widget Builder', 'wp-pin-master-lite' ); ?>:</label>
 			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'builder_select' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'builder_select' ) ); ?>">
 				<?php
 				$choices = array(
-					'embedPin'   => __( 'Pin', 'wp-pin-master' ),
-					'embedBoard' => __( 'Board', 'wp-pin-master' ),
-					'embedUser'  => __( 'Profile', 'wp-pin-master' ),
+					'embedPin'   => __( 'Pin', 'wp-pin-master-lite' ),
+					'embedBoard' => __( 'Board', 'wp-pin-master-lite' ),
+					'embedUser'  => __( 'Profile', 'wp-pin-master-lite' ),
 				);
 				foreach ( $choices as $value => $label ) {
 					printf(
@@ -139,18 +139,18 @@ class Board_Widget extends \WP_Widget {
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'pinterest_user_url' ) ); ?>"><?php esc_html_e( 'Pinterest URL', 'wp-pin-master' ); ?>:</label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'pinterest_user_url' ) ); ?>"><?php esc_html_e( 'Pinterest URL', 'wp-pin-master-lite' ); ?>:</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'pinterest_user_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'pinterest_user_url' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['pinterest_user_url'] ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'pinterest_name' ) ); ?>"><?php esc_html_e( 'Link Text', 'wp-pin-master' ); ?>:</label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'pinterest_name' ) ); ?>"><?php esc_html_e( 'Link Text', 'wp-pin-master-lite' ); ?>:</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'pinterest_name' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'pinterest_name' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['pinterest_name'] ); ?>">
 		</p>
 		<?php
 		$numbers = array(
-			'pinterest_borard_width' => __( 'Pinterest Board Width', 'wp-pin-master' ),
-			'pinterest_scale_width'  => __( 'Pinterest Scale Width', 'wp-pin-master' ),
-			'pinterest_scale_height' => __( 'Pinterest Scale Height', 'wp-pin-master' ),
+			'pinterest_borard_width' => __( 'Pinterest Board Width', 'wp-pin-master-lite' ),
+			'pinterest_scale_width'  => __( 'Pinterest Scale Width', 'wp-pin-master-lite' ),
+			'pinterest_scale_height' => __( 'Pinterest Scale Height', 'wp-pin-master-lite' ),
 		);
 		foreach ( $numbers as $key => $label ) {
 			?>

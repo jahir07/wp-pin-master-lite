@@ -36,7 +36,7 @@ const SelectField = ( { field, value, onChange, disabled } ) => (
 		options={ choiceEntries( field ).map( ( [ key, choice ] ) => ( {
 			value: key,
 			label: choice.pro && ! window.pinMasterSettings?.isPro
-				? `${ choice.label } — ${ __( 'Pro', 'wp-pin-master' ) }`
+				? `${ choice.label } — ${ __( 'Pro', 'wp-pin-master-lite' ) }`
 				: choice.label,
 			disabled: !! choice.pro && ! window.pinMasterSettings?.isPro,
 		} ) ) }
@@ -65,7 +65,7 @@ const MultiselectField = ( { field, value, onChange, disabled } ) => {
 						key={ key }
 						label={
 							locked
-								? `${ choice.label } — ${ __( 'Pro', 'wp-pin-master' ) }`
+								? `${ choice.label } — ${ __( 'Pro', 'wp-pin-master-lite' ) }`
 								: choice.label
 						}
 						checked={ selected.includes( key ) }
@@ -123,10 +123,10 @@ const ColorField = ( { field, value, onChange, disabled } ) => (
 const BoxField = ( { field, value, onChange, disabled } ) => {
 	const box = { top: 0, right: 0, bottom: 0, left: 0, ...( value || {} ) };
 	const sides = [
-		[ 'top', __( 'Top', 'wp-pin-master' ) ],
-		[ 'right', __( 'Right', 'wp-pin-master' ) ],
-		[ 'bottom', __( 'Bottom', 'wp-pin-master' ) ],
-		[ 'left', __( 'Left', 'wp-pin-master' ) ],
+		[ 'top', __( 'Top', 'wp-pin-master-lite' ) ],
+		[ 'right', __( 'Right', 'wp-pin-master-lite' ) ],
+		[ 'bottom', __( 'Bottom', 'wp-pin-master-lite' ) ],
+		[ 'left', __( 'Left', 'wp-pin-master-lite' ) ],
 	];
 
 	return (
