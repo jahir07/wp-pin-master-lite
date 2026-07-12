@@ -151,6 +151,7 @@ export default function App() {
 				<Renderer
 					field={ field }
 					value={ values[ field.id ] ?? field.default }
+					values={ values }
 					disabled={ locked }
 					onChange={ ( next ) =>
 						setValues( ( prev ) => ( { ...prev, [ field.id ]: next } ) )
