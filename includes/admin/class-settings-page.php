@@ -41,6 +41,18 @@ class Settings_Page {
 	}
 
 	/**
+	 * The admin menu icon: a 20x20 Pinterest-pin glyph as an inline SVG.
+	 * WP recognizes the base64 SVG form and sizes/colors it like a Dashicon.
+	 *
+	 * @return string
+	 */
+	private function menu_icon() {
+		$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#a7aaad" d="M10 1.5a8.5 8.5 0 0 0-3.1 16.4c-.07-.72-.14-1.83.03-2.62l.98-4.17s-.25-.5-.25-1.24c0-1.16.67-2.03 1.51-2.03.71 0 1.06.54 1.06 1.18 0 .72-.46 1.79-.69 2.79-.2.83.42 1.51 1.24 1.51 1.49 0 2.63-1.57 2.63-3.83 0-2-1.44-3.4-3.5-3.4-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91a.25.25 0 0 1 .06.24l-.23.95c-.04.15-.12.19-.28.11-1.06-.49-1.72-2.04-1.72-3.28 0-2.67 1.94-5.13 5.6-5.13 2.94 0 5.22 2.09 5.22 4.89 0 2.92-1.84 5.27-4.4 5.27-.86 0-1.66-.44-1.94-.97l-.53 2.01c-.19.74-.71 1.66-1.05 2.22A8.5 8.5 0 1 0 10 1.5z"/></svg>';
+
+		return 'data:image/svg+xml;base64,' . base64_encode( $svg ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode -- Admin menu SVG icon, the form WP core expects.
+	}
+
+	/**
 	 * Register the top-level menu page.
 	 */
 	public function register_menu() {
@@ -50,7 +62,7 @@ class Settings_Page {
 			'manage_options',
 			self::MENU_SLUG,
 			array( $this, 'render' ),
-			PIN_MASTER_ASSETS . '/images/pinicon.png',
+			$this->menu_icon(),
 			66
 		);
 	}
