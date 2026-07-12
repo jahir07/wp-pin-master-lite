@@ -204,7 +204,6 @@ final class Plugin {
 	 */
 	public function init_hooks() {
 		add_action( 'init', array( $this, 'init_classes' ) );
-		add_action( 'init', array( $this, 'localization_setup' ) );
 		add_action( 'rest_api_init', array( $this, 'init_rest' ) );
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
@@ -251,13 +250,6 @@ final class Plugin {
 		$controller = new Settings_Controller();
 		$controller->register_routes();
 		$this->container['settings_rest'] = $controller;
-	}
-
-	/**
-	 * Load the text domain.
-	 */
-	public function localization_setup() {
-		load_plugin_textdomain( 'wp-pin-master-lite', false, dirname( plugin_basename( PIN_MASTER_FILE ) ) . '/languages/' );
 	}
 
 	/**
