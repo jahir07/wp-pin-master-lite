@@ -338,6 +338,14 @@ $bg-soft: #f8f9fb;
 }
 
 .pin-master-preview-stage {
+	// The PM-Font stylesheet pins glyphs to 20px; the preview should
+	// follow the configured icon size instead.
+	span[class*="pm-icon-"]::before,
+	span[class*="pm-icon-"]::after {
+		font-size: inherit;
+		font-family: PM-Font;
+	}
+
 	position: relative;
 	height: 220px;
 	border-radius: 10px;
