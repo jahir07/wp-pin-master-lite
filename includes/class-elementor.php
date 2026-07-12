@@ -1,4 +1,10 @@
 <?php
+/**
+ * Elementor integration.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Classes;
 
 use Elementor\Controls_Manager;
@@ -12,8 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Elementor {
 
+	/**
+	 * Hook registration.
+	 */
 	public function __construct() {
-		add_action( 'elementor/element/before_section_end', array( $this, 'extra_field' ), 10, 3 );
+		add_action( 'elementor/element/before_section_end', array( $this, 'extra_field' ), 10, 2 );
 	}
 
 	/**
@@ -21,9 +30,8 @@ class Elementor {
 	 *
 	 * @param \Elementor\Controls_Stack $section    Elementor element.
 	 * @param string                    $section_id Current section.
-	 * @param array                     $args       Section args.
 	 */
-	public function extra_field( $section, $section_id, $args ) {
+	public function extra_field( $section, $section_id ) {
 		if ( 'section_image' !== $section_id || ! in_array( $section->get_name(), array( 'image', 'image-box' ), true ) ) {
 			return;
 		}

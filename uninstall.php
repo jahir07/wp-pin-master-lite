@@ -1,6 +1,8 @@
 <?php
 /**
  * WP Pin Master uninstall cleanup.
+ *
+ * @package Pin_Master
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Pinterest Pin / Board / Profile embed widget.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -6,86 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Pinterest Follow button widget.
- */
-class Follow_Widget extends \WP_Widget {
-
-	public function __construct() {
-		parent::__construct(
-			'wppml_pinterest_follow_button',
-			__( 'Pin Master: Pinterest Follower', 'wp-pin-master' ),
-			array(
-				'classname'   => 'wppml_pinterest_follow_button',
-				'description' => esc_html__( 'Pinterest Follow button.', 'wp-pin-master' ),
-			)
-		);
-	}
-
-	public function widget( $args, $instance ) {
-		$instance = wp_parse_args(
-			(array) $instance,
-			array(
-				'title'              => '',
-				'pinterest_user_url' => '',
-				'pinterest_name'     => 'Pinterest',
-			)
-		);
-
-		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput -- Theme-provided widget markup.
-
-		if ( '' !== $instance['title'] ) {
-			echo $args['before_title'] . esc_html( apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput
-		}
-		?>
-		<div class="pm-pinterest-follow">
-			<a data-pin-do="buttonFollow" href="<?php echo esc_url( $instance['pinterest_user_url'] ); ?>"><?php echo esc_html( $instance['pinterest_name'] ); ?></a>
-		</div>
-		<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-		<?php
-		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput
-	}
-
-	public function update( $new_instance, $old_instance ) {
-		$instance                       = $old_instance;
-		$instance['title']              = sanitize_text_field( $new_instance['title'] ?? '' );
-		$instance['pinterest_user_url'] = esc_url_raw( $new_instance['pinterest_user_url'] ?? '' );
-		$instance['pinterest_name']     = sanitize_text_field( $new_instance['pinterest_name'] ?? '' );
-
-		return $instance;
-	}
-
-	public function form( $instance ) {
-		$instance = wp_parse_args(
-			(array) $instance,
-			array(
-				'title'              => __( 'Pinterest Follow', 'wp-pin-master' ),
-				'pinterest_user_url' => '',
-				'pinterest_name'     => 'Pinterest',
-			)
-		);
-
-		$fields = array(
-			'title'              => __( 'Title', 'wp-pin-master' ),
-			'pinterest_user_url' => __( 'Pinterest URL', 'wp-pin-master' ),
-			'pinterest_name'     => __( 'Pinterest Profile Name', 'wp-pin-master' ),
-		);
-
-		foreach ( $fields as $key => $label ) {
-			?>
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $label ); ?>:</label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="text" value="<?php echo esc_attr( $instance[ $key ] ); ?>">
-			</p>
-			<?php
-		}
-	}
-}
-
-/**
- * Pinterest Pin / Board / Profile embed widget.
+ * Embeds a Pinterest Pin, Board, or Profile.
  */
 class Board_Widget extends \WP_Widget {
 
+	/**
+	 * Register the widget.
+	 */
 	public function __construct() {
 		parent::__construct(
 			'wppml_pinterest_builder',
@@ -97,6 +30,12 @@ class Board_Widget extends \WP_Widget {
 		);
 	}
 
+	/**
+	 * Frontend output.
+	 *
+	 * @param array $args     Widget area arguments.
+	 * @param array $instance Saved values.
+	 */
 	public function widget( $args, $instance ) {
 		$instance = wp_parse_args(
 			(array) $instance,
@@ -111,10 +50,12 @@ class Board_Widget extends \WP_Widget {
 			)
 		);
 
-		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput -- Theme-provided widget markup.
+		wp_enqueue_script( 'pin-master-pinit' );
+
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-provided widget markup.
 
 		if ( '' !== $instance['title'] ) {
-			echo $args['before_title'] . esc_html( apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput
+			echo $args['before_title'] . esc_html( apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-provided widget markup.
 		}
 		?>
 		<div class="pm-pinterest-follow">
@@ -126,11 +67,17 @@ class Board_Widget extends \WP_Widget {
 				data-pin-scale-height="<?php echo esc_attr( $instance['pinterest_scale_height'] ); ?>"
 				href="<?php echo esc_url( $instance['pinterest_user_url'] ); ?>"><?php echo esc_html( $instance['pinterest_name'] ); ?></a>
 		</div>
-		<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 		<?php
-		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Theme-provided widget markup.
 	}
 
+	/**
+	 * Sanitize submitted values.
+	 *
+	 * @param array $new_instance New values.
+	 * @param array $old_instance Previous values.
+	 * @return array
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
@@ -138,7 +85,7 @@ class Board_Widget extends \WP_Widget {
 		$instance['pinterest_user_url'] = esc_url_raw( $new_instance['pinterest_user_url'] ?? '' );
 		$instance['pinterest_name']     = sanitize_text_field( $new_instance['pinterest_name'] ?? '' );
 
-		$builder              = $new_instance['builder_select'] ?? 'embedBoard';
+		$builder                    = $new_instance['builder_select'] ?? 'embedBoard';
 		$instance['builder_select'] = in_array( $builder, array( 'embedPin', 'embedBoard', 'embedUser' ), true ) ? $builder : 'embedBoard';
 
 		foreach ( array( 'pinterest_borard_width', 'pinterest_scale_width', 'pinterest_scale_height' ) as $key ) {
@@ -148,6 +95,11 @@ class Board_Widget extends \WP_Widget {
 		return $instance;
 	}
 
+	/**
+	 * Admin form.
+	 *
+	 * @param array $instance Saved values.
+	 */
 	public function form( $instance ) {
 		$instance = wp_parse_args(
 			(array) $instance,
@@ -210,11 +162,3 @@ class Board_Widget extends \WP_Widget {
 		}
 	}
 }
-
-add_action(
-	'widgets_init',
-	function () {
-		register_widget( __NAMESPACE__ . '\\Follow_Widget' );
-		register_widget( __NAMESPACE__ . '\\Board_Widget' );
-	}
-);

@@ -1,4 +1,10 @@
 <?php
+/**
+ * The core plugin container.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master;
 
 use Pin_Master\Classes\Assets;
@@ -181,7 +187,8 @@ final class Plugin {
 	public function includes() {
 		require_once PIN_MASTER_INCLUDES . '/class-options.php';
 		require_once PIN_MASTER_INCLUDES . '/class-assets.php';
-		require_once PIN_MASTER_INCLUDES . '/class-widgets.php';
+		require_once PIN_MASTER_INCLUDES . '/widgets/class-follow-widget.php';
+		require_once PIN_MASTER_INCLUDES . '/widgets/class-board-widget.php';
 		require_once PIN_MASTER_INCLUDES . '/class-frontend.php';
 		require_once PIN_MASTER_INCLUDES . '/admin/class-settings-schema.php';
 		require_once PIN_MASTER_INCLUDES . '/admin/class-settings-page.php';
@@ -199,6 +206,15 @@ final class Plugin {
 		add_action( 'init', array( $this, 'init_classes' ) );
 		add_action( 'init', array( $this, 'localization_setup' ) );
 		add_action( 'rest_api_init', array( $this, 'init_rest' ) );
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+	}
+
+	/**
+	 * Register the plugin widgets.
+	 */
+	public function register_widgets() {
+		register_widget( Classes\Follow_Widget::class );
+		register_widget( Classes\Board_Widget::class );
 	}
 
 	/**

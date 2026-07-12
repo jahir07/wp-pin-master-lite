@@ -12,7 +12,6 @@ import {
 	Snackbar,
 	Card,
 	CardBody,
-	ExternalLink,
 } from '@wordpress/components';
 
 import { getFieldTypes, isVisible } from './fields';
@@ -20,21 +19,81 @@ import Preview from './preview';
 
 const ENDPOINT = '/pin-master/v1/settings';
 
+const COMPARISON = [
+	[ __( 'Pin button on hover', 'wp-pin-master' ), true, true ],
+	[ __( 'Button colors, size, position & margins', 'wp-pin-master' ), true, true ],
+	[ __( 'Classic & modern button styles', 'wp-pin-master' ), true, true ],
+	[ __( 'Pinterest Follow & Board widgets', 'wp-pin-master' ), true, true ],
+	[ __( 'Elementor No-Pin control', 'wp-pin-master' ), true, true ],
+	[ __( 'Always-visible & touch-device buttons', 'wp-pin-master' ), false, true ],
+	[ __( 'Sidebar images or every image on the site', 'wp-pin-master' ), false, true ],
+	[ __( 'Icon picker & custom button image', 'wp-pin-master' ), false, true ],
+	[ __( 'Custom post type targeting', 'wp-pin-master' ), false, true ],
+	[ __( 'Per-image Pinterest description, Repin ID & No Pin', 'wp-pin-master' ), false, true ],
+	[ __( 'AI pin descriptions (Claude / OpenAI / Gemini)', 'wp-pin-master' ), false, true ],
+	[ __( 'AI alt text from the image itself', 'wp-pin-master' ), false, true ],
+	[ __( 'AI hashtag suggestions', 'wp-pin-master' ), false, true ],
+	[ __( 'Bulk AI generation for the media library', 'wp-pin-master' ), false, true ],
+];
+
+const CompareMark = ( { yes } ) =>
+	yes ? (
+		<span className="pm-yes" aria-label={ __( 'Included', 'wp-pin-master' ) }>
+			✓
+		</span>
+	) : (
+		<span className="pm-no" aria-label={ __( 'Not included', 'wp-pin-master' ) }>
+			—
+		</span>
+	);
+
 const UpsellTab = () => (
 	<Card>
 		<CardBody>
-			<h2>{ __( 'WP Pin Master Pro', 'wp-pin-master' ) }</h2>
-			<ul className="pin-master-upsell-list">
-				<li>{ __( 'Show pin buttons always or on touch devices', 'wp-pin-master' ) }</li>
-				<li>{ __( 'Pin buttons on sidebar images or every image', 'wp-pin-master' ) }</li>
-				<li>{ __( 'Custom button icons and images', 'wp-pin-master' ) }</li>
-				<li>{ __( 'Per-image Pinterest descriptions', 'wp-pin-master' ) }</li>
-				<li>{ __( 'AI-generated pin descriptions, alt text, and hashtags', 'wp-pin-master' ) }</li>
-				<li>{ __( 'Bulk AI generation for your whole media library', 'wp-pin-master' ) }</li>
-			</ul>
-			<ExternalLink href={ window.pinMasterSettings?.upgradeUrl }>
-				{ __( 'Upgrade to Pro', 'wp-pin-master' ) }
-			</ExternalLink>
+			<div className="pin-master-upsell-hero">
+				<h2>{ __( 'Do more with WP Pin Master Pro', 'wp-pin-master' ) }</h2>
+				<p>
+					{ __(
+						'Everything in the free plugin, plus per-image Pinterest data and AI-generated content.',
+						'wp-pin-master'
+					) }
+				</p>
+			</div>
+			<table className="pin-master-compare">
+				<thead>
+					<tr>
+						<th>{ __( 'Feature', 'wp-pin-master' ) }</th>
+						<th>{ __( 'Free', 'wp-pin-master' ) }</th>
+						<th className="pin-master-compare-pro">
+							{ __( 'Pro', 'wp-pin-master' ) }
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{ COMPARISON.map( ( [ label, free, pro ] ) => (
+						<tr key={ label }>
+							<td>{ label }</td>
+							<td>
+								<CompareMark yes={ free } />
+							</td>
+							<td className="pin-master-compare-pro">
+								<CompareMark yes={ pro } />
+							</td>
+						</tr>
+					) ) }
+				</tbody>
+			</table>
+			<div className="pin-master-upsell-cta">
+				<Button
+					variant="primary"
+					href={ window.pinMasterSettings?.upgradeUrl }
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					{ __( 'Upgrade to Pro', 'wp-pin-master' ) }
+				</Button>
+				<p>{ __( 'Bring your own AI API key — no extra subscription.', 'wp-pin-master' ) }</p>
+			</div>
 		</CardBody>
 	</Card>
 );
@@ -172,7 +231,17 @@ export default function App() {
 	return (
 		<div className="pin-master-app">
 			<header className="pin-master-header">
-				<h1>{ config.title || __( 'WP Pin Master', 'wp-pin-master' ) }</h1>
+				<div className="pin-master-brand">
+					<span className="pin-master-brand-mark" aria-hidden="true">
+						P
+					</span>
+					<h1>
+						{ config.title || __( 'WP Pin Master', 'wp-pin-master' ) }
+						{ config.version && (
+							<span className="pin-master-version">v{ config.version }</span>
+						) }
+					</h1>
+				</div>
 				<div className="pin-master-header-actions">
 					<Button variant="tertiary" onClick={ exportSettings }>
 						{ __( 'Export', 'wp-pin-master' ) }

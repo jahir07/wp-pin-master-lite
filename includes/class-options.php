@@ -1,4 +1,10 @@
 <?php
+/**
+ * Central options access.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,30 +24,30 @@ class Options {
 	 */
 	public static function defaults() {
 		$defaults = array(
-			'show_button'           => 'hover',
-			'image_selector'        => 'article',
-			'pin_text_data_collect' => array( 'post_title' ),
-			'button_position'       => 'top-left',
-			'pin_image'             => 'default',
-			'pin_image_button'      => 'round',
-			'pin_button_width'      => 45,
-			'pin_button_height'     => 45,
-			'pin_font_size'         => 20,
-			'pin_font_color'        => '#ffffff',
-			'pin_bg_color'          => '#e60023',
-			'pin_font_color_hover'  => '#ffffff',
-			'pin_bg_color_hover'    => '#ad081b',
-			'pin_space'             => array(
+			'show_button'            => 'hover',
+			'image_selector'         => 'article',
+			'pin_text_data_collect'  => array( 'post_title' ),
+			'button_position'        => 'top-left',
+			'pin_image'              => 'default',
+			'pin_image_button'       => 'round',
+			'pin_button_width'       => 45,
+			'pin_button_height'      => 45,
+			'pin_font_size'          => 20,
+			'pin_font_color'         => '#ffffff',
+			'pin_bg_color'           => '#e60023',
+			'pin_font_color_hover'   => '#ffffff',
+			'pin_bg_color_hover'     => '#ad081b',
+			'pin_space'              => array(
 				'top'    => 20,
 				'right'  => 20,
 				'bottom' => 20,
 				'left'   => 20,
 			),
-			'where_show'            => array( 'front', 'home', 'single', 'page', 'archive', 'search', 'category' ),
-			'where_show_cpt'        => array(),
-			'min_image_width'       => 200,
-			'min_image_height'      => 150,
-			'min_image_width_pixel' => 200,
+			'where_show'             => array( 'front', 'home', 'single', 'page', 'archive', 'search', 'category' ),
+			'where_show_cpt'         => array(),
+			'min_image_width'        => 200,
+			'min_image_height'       => 150,
+			'min_image_width_pixel'  => 200,
 			'min_image_height_pixel' => 120,
 		);
 

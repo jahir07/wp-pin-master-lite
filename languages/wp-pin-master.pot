@@ -1,4 +1,4 @@
-# Copyright (C) 2026 codextune.com
+# Copyright (C) 2026 xstheme
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
@@ -9,22 +9,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-12T12:25:29+00:00\n"
+"POT-Creation-Date: 2026-07-12T13:34:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wp-pin-master\n"
 
 #. Plugin Name of the plugin
 #: wp-pin-master.php
-#: includes/admin/class-settings-page.php:31
-#: includes/class-elementor.php:34
-#: src/settings/app.js:175
+#: includes/admin/class-settings-page.php:40
+#: includes/class-elementor.php:42
+#: src/settings/app.js:239
 msgid "WP Pin Master"
 msgstr ""
 
 #. Plugin URI of the plugin
 #: wp-pin-master.php
-msgid "https://www.codextune.com/wp-pin-master"
+msgid "https://www.xstheme.com/wp-pin-master/"
 msgstr ""
 
 #. Description of the plugin
@@ -34,426 +34,483 @@ msgstr ""
 
 #. Author of the plugin
 #: wp-pin-master.php
-msgid "codextune.com"
+msgid "xstheme"
 msgstr ""
 
 #. Author URI of the plugin
 #: wp-pin-master.php
-msgid "https://www.codextune.com/"
+msgid "https://www.xstheme.com/"
 msgstr ""
 
-#: includes/admin/class-settings-controller.php:93
+#: includes/admin/class-settings-controller.php:99
 msgid "You are not allowed to manage WP Pin Master settings."
 msgstr ""
 
-#: includes/admin/class-settings-controller.php:158
+#: includes/admin/class-settings-controller.php:164
 msgid "The import file does not contain WP Pin Master settings."
 msgstr ""
 
-#: includes/admin/class-settings-page.php:40
+#: includes/admin/class-settings-page.php:49
 msgid "Pin Master"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:48
+#: includes/admin/class-settings-schema.php:60
 msgid "General"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:53
+#: includes/admin/class-settings-schema.php:65
 msgid "Show Pin Button"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:54
+#: includes/admin/class-settings-schema.php:66
 msgid "When the Pinterest button appears on images."
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:57
+#: includes/admin/class-settings-schema.php:69
 msgid "On hover"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:59
+#: includes/admin/class-settings-schema.php:71
 msgid "On touch devices"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:63
+#: includes/admin/class-settings-schema.php:75
 msgid "Always visible"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:71
+#: includes/admin/class-settings-schema.php:83
 msgid "Which Images"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:72
+#: includes/admin/class-settings-schema.php:84
 msgid "Where the pin button is offered."
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:75
+#: includes/admin/class-settings-schema.php:87
 msgid "Article area only"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:77
+#: includes/admin/class-settings-schema.php:89
 msgid "Article area + sidebar"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:81
+#: includes/admin/class-settings-schema.php:93
 msgid "All images on the site"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:89
+#: includes/admin/class-settings-schema.php:101
 msgid "Pin Description Sources"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:90
+#: includes/admin/class-settings-schema.php:102
 msgid "Ordered priority list. The first source with data becomes the Pinterest description."
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:93
+#: includes/admin/class-settings-schema.php:105
 msgid "Post title"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:94
+#: includes/admin/class-settings-schema.php:106
 msgid "Post excerpt"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:95
+#: includes/admin/class-settings-schema.php:107
 msgid "Image title attribute"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:96
+#: includes/admin/class-settings-schema.php:108
 msgid "Image description"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:97
+#: includes/admin/class-settings-schema.php:109
 msgid "Image caption"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:98
+#: includes/admin/class-settings-schema.php:110
 msgid "Image alt attribute"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:99
+#: includes/admin/class-settings-schema.php:111
 msgid "Site title"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:101
+#: includes/admin/class-settings-schema.php:113
 msgid "Pinterest description (per image)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:110
+#: includes/admin/class-settings-schema.php:122
 msgid "Style"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:115
+#: includes/admin/class-settings-schema.php:127
 msgid "Button Position"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:118
+#: includes/admin/class-settings-schema.php:130
 msgid "Top Left"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:119
+#: includes/admin/class-settings-schema.php:131
 msgid "Top Right"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:120
+#: includes/admin/class-settings-schema.php:132
 msgid "Bottom Left"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:121
+#: includes/admin/class-settings-schema.php:133
 msgid "Bottom Right"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:122
+#: includes/admin/class-settings-schema.php:134
 msgid "Center"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:128
+#: includes/admin/class-settings-schema.php:140
 msgid "Button Style"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:131
+#: includes/admin/class-settings-schema.php:143
 msgid "Classic Pinterest button"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:132
+#: includes/admin/class-settings-schema.php:144
 msgid "Modern button"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:134
+#: includes/admin/class-settings-schema.php:146
 msgid "Icon"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:138
+#: includes/admin/class-settings-schema.php:150
 msgid "Custom image"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:146
+#: includes/admin/class-settings-schema.php:158
 msgid "Button Shape"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:150
+#: includes/admin/class-settings-schema.php:162
 msgid "Square"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:151
+#: includes/admin/class-settings-schema.php:163
 msgid "Rounded Square"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:152
+#: includes/admin/class-settings-schema.php:164
 msgid "Round"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:158
+#: includes/admin/class-settings-schema.php:170
 msgid "Button Width (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:166
+#: includes/admin/class-settings-schema.php:178
 msgid "Button Height (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:174
+#: includes/admin/class-settings-schema.php:186
 msgid "Icon Size (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:183
+#: includes/admin/class-settings-schema.php:195
 msgid "Icon Color"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:190
+#: includes/admin/class-settings-schema.php:202
 msgid "Background Color"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:197
+#: includes/admin/class-settings-schema.php:209
 msgid "Icon Color (hover)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:204
+#: includes/admin/class-settings-schema.php:216
 msgid "Background Color (hover)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:211
+#: includes/admin/class-settings-schema.php:223
 msgid "Button Margin (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:218
+#: includes/admin/class-settings-schema.php:230
 msgid "Advanced"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:223
+#: includes/admin/class-settings-schema.php:235
 msgid "Active On"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:226
+#: includes/admin/class-settings-schema.php:238
 msgid "Front page"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:227
+#: includes/admin/class-settings-schema.php:239
 msgid "Blog homepage"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:228
+#: includes/admin/class-settings-schema.php:240
 msgid "Single posts"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:229
+#: includes/admin/class-settings-schema.php:241
 msgid "Pages"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:230
+#: includes/admin/class-settings-schema.php:242
 msgid "Archives"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:231
+#: includes/admin/class-settings-schema.php:243
 msgid "Search results"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:232
+#: includes/admin/class-settings-schema.php:244
 msgid "Category pages"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:238
+#: includes/admin/class-settings-schema.php:250
 msgid "Custom Post Types"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:246
+#: includes/admin/class-settings-schema.php:258
 msgid "Minimum Image Width (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:247
+#: includes/admin/class-settings-schema.php:259
 msgid "Images narrower than this never get a pin button."
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:255
+#: includes/admin/class-settings-schema.php:267
 msgid "Minimum Image Height (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:263
+#: includes/admin/class-settings-schema.php:275
 msgid "Minimum Image Width on Mobile (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:271
+#: includes/admin/class-settings-schema.php:283
 msgid "Minimum Image Height on Mobile (px)"
 msgstr ""
 
-#: includes/admin/class-settings-schema.php:280
-#: src/settings/app.js:149
+#: includes/admin/class-settings-schema.php:292
+#: src/settings/app.js:68
+#: src/settings/app.js:208
 #: src/settings/fields.js:39
 #: src/settings/fields.js:68
 msgid "Pro"
 msgstr ""
 
-#: includes/class-elementor.php:38
+#: includes/class-elementor.php:46
 msgid "No Pin"
 msgstr ""
 
-#: includes/class-elementor.php:39
+#: includes/class-elementor.php:47
 msgid "Yes Pin"
 msgstr ""
 
 #. translators: 1: required PHP version, 2: current PHP version
-#: includes/class-plugin.php:67
+#: includes/class-plugin.php:73
 #, php-format
 msgid "WP Pin Master requires PHP %1$s or newer. You are running %2$s."
 msgstr ""
 
-#: includes/class-widgets.php:16
-msgid "Pin Master: Pinterest Follower"
-msgstr ""
-
-#: includes/class-widgets.php:19
-msgid "Pinterest Follow button."
-msgstr ""
-
-#: includes/class-widgets.php:61
-msgid "Pinterest Follow"
-msgstr ""
-
-#: includes/class-widgets.php:68
-#: includes/class-widgets.php:166
-msgid "Title"
-msgstr ""
-
-#: includes/class-widgets.php:69
-#: includes/class-widgets.php:190
-msgid "Pinterest URL"
-msgstr ""
-
-#: includes/class-widgets.php:70
-msgid "Pinterest Profile Name"
-msgstr ""
-
-#: includes/class-widgets.php:92
+#: includes/widgets/class-board-widget.php:25
 msgid "Pin Master: Pinterest Builder"
 msgstr ""
 
-#: includes/class-widgets.php:95
+#: includes/widgets/class-board-widget.php:28
 msgid "Embed a Pinterest Pin, Board, or Profile."
 msgstr ""
 
-#: includes/class-widgets.php:155
+#: includes/widgets/class-board-widget.php:107
 msgid "Pinterest Board"
 msgstr ""
 
-#: includes/class-widgets.php:170
+#: includes/widgets/class-board-widget.php:118
+#: includes/widgets/class-follow-widget.php:96
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/class-board-widget.php:122
 msgid "Widget Builder"
 msgstr ""
 
-#: includes/class-widgets.php:174
+#: includes/widgets/class-board-widget.php:126
 msgid "Pin"
 msgstr ""
 
-#: includes/class-widgets.php:175
+#: includes/widgets/class-board-widget.php:127
 msgid "Board"
 msgstr ""
 
-#: includes/class-widgets.php:176
+#: includes/widgets/class-board-widget.php:128
 msgid "Profile"
 msgstr ""
 
-#: includes/class-widgets.php:194
+#: includes/widgets/class-board-widget.php:142
+#: includes/widgets/class-follow-widget.php:97
+msgid "Pinterest URL"
+msgstr ""
+
+#: includes/widgets/class-board-widget.php:146
 msgid "Link Text"
 msgstr ""
 
-#: includes/class-widgets.php:199
+#: includes/widgets/class-board-widget.php:151
 msgid "Pinterest Board Width"
 msgstr ""
 
-#: includes/class-widgets.php:200
+#: includes/widgets/class-board-widget.php:152
 msgid "Pinterest Scale Width"
 msgstr ""
 
-#: includes/class-widgets.php:201
+#: includes/widgets/class-board-widget.php:153
 msgid "Pinterest Scale Height"
 msgstr ""
 
+#: includes/widgets/class-follow-widget.php:25
+msgid "Pin Master: Pinterest Follower"
+msgstr ""
+
+#: includes/widgets/class-follow-widget.php:28
+msgid "Pinterest Follow button."
+msgstr ""
+
+#: includes/widgets/class-follow-widget.php:89
+msgid "Pinterest Follow"
+msgstr ""
+
+#: includes/widgets/class-follow-widget.php:98
+msgid "Pinterest Profile Name"
+msgstr ""
+
+#: src/settings/app.js:23
+msgid "Pin button on hover"
+msgstr ""
+
+#: src/settings/app.js:24
+msgid "Button colors, size, position & margins"
+msgstr ""
+
+#: src/settings/app.js:25
+msgid "Classic & modern button styles"
+msgstr ""
+
 #: src/settings/app.js:26
-msgid "WP Pin Master Pro"
+msgid "Pinterest Follow & Board widgets"
+msgstr ""
+
+#: src/settings/app.js:27
+msgid "Elementor No-Pin control"
 msgstr ""
 
 #: src/settings/app.js:28
-msgid "Show pin buttons always or on touch devices"
+msgid "Always-visible & touch-device buttons"
 msgstr ""
 
 #: src/settings/app.js:29
-msgid "Pin buttons on sidebar images or every image"
+msgid "Sidebar images or every image on the site"
 msgstr ""
 
 #: src/settings/app.js:30
-msgid "Custom button icons and images"
+msgid "Icon picker & custom button image"
 msgstr ""
 
 #: src/settings/app.js:31
-msgid "Per-image Pinterest descriptions"
+msgid "Custom post type targeting"
 msgstr ""
 
 #: src/settings/app.js:32
-msgid "AI-generated pin descriptions, alt text, and hashtags"
+msgid "Per-image Pinterest description, Repin ID & No Pin"
 msgstr ""
 
 #: src/settings/app.js:33
-msgid "Bulk AI generation for your whole media library"
+msgid "AI pin descriptions (Claude / OpenAI / Gemini)"
+msgstr ""
+
+#: src/settings/app.js:34
+msgid "AI alt text from the image itself"
+msgstr ""
+
+#: src/settings/app.js:35
+msgid "AI hashtag suggestions"
 msgstr ""
 
 #: src/settings/app.js:36
-msgid "Upgrade to Pro"
+msgid "Bulk AI generation for the media library"
+msgstr ""
+
+#: src/settings/app.js:41
+msgid "Included"
+msgstr ""
+
+#: src/settings/app.js:45
+msgid "Not included"
+msgstr ""
+
+#: src/settings/app.js:54
+msgid "Do more with WP Pin Master Pro"
 msgstr ""
 
 #: src/settings/app.js:56
+msgid "Everything in the free plugin, plus per-image Pinterest data and AI-generated content."
+msgstr ""
+
+#: src/settings/app.js:65
+msgid "Feature"
+msgstr ""
+
+#: src/settings/app.js:66
+msgid "Free"
+msgstr ""
+
+#: src/settings/app.js:93
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: src/settings/app.js:95
+msgid "Bring your own AI API key — no extra subscription."
+msgstr ""
+
+#: src/settings/app.js:115
 msgid "Failed to load settings."
 msgstr ""
 
-#: src/settings/app.js:70
+#: src/settings/app.js:129
 msgid "Settings saved."
 msgstr ""
 
-#: src/settings/app.js:72
+#: src/settings/app.js:131
 msgid "Saving failed."
 msgstr ""
 
-#: src/settings/app.js:92
+#: src/settings/app.js:151
 msgid "Export failed."
 msgstr ""
 
-#: src/settings/app.js:111
+#: src/settings/app.js:170
 msgid "Settings imported."
 msgstr ""
 
-#: src/settings/app.js:114
+#: src/settings/app.js:173
 msgid "Import failed — is this a WP Pin Master export file?"
 msgstr ""
 
-#: src/settings/app.js:178
+#: src/settings/app.js:247
 msgid "Export"
 msgstr ""
 
-#: src/settings/app.js:181
+#: src/settings/app.js:250
 msgid "Import"
 msgstr ""
 
-#: src/settings/app.js:191
+#: src/settings/app.js:260
 msgid "Saving…"
 msgstr ""
 
-#: src/settings/app.js:191
+#: src/settings/app.js:260
 msgid "Save Changes"
 msgstr ""
 

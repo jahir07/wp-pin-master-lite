@@ -1,4 +1,10 @@
 <?php
+/**
+ * Settings screen registration.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,6 +18,9 @@ class Settings_Page {
 
 	const MENU_SLUG = 'wp-pin-master';
 
+	/**
+	 * Hook registration.
+	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'register_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
@@ -95,11 +104,12 @@ class Settings_Page {
 			'pin-master-settings',
 			'window.pinMasterSettings = ' . wp_json_encode(
 				array(
-					'schema'    => Settings_Schema::get(),
-					'title'     => self::title(),
-					'assetsUrl' => PIN_MASTER_ASSETS,
-					'isPro'     => (bool) apply_filters( 'pin_master_is_pro', false ),
-					'upgradeUrl' => 'https://www.codextune.com/downloads/wp-pin-master-pro/',
+					'schema'     => Settings_Schema::get(),
+					'title'      => self::title(),
+					'version'    => PIN_MASTER_VERSION,
+					'assetsUrl'  => PIN_MASTER_ASSETS,
+					'isPro'      => (bool) apply_filters( 'pin_master_is_pro', false ),
+					'upgradeUrl' => 'https://www.xstheme.com/wp-pin-master-pro/',
 				)
 			) . ';',
 			'before'

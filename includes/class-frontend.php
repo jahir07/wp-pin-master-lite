@@ -1,4 +1,10 @@
 <?php
+/**
+ * Frontend pin button behavior.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Classes;
 
 use Pin_Master\Options;
@@ -14,6 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Frontend {
 
+	/**
+	 * Hook registration.
+	 */
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'wp_head', array( $this, 'print_header_styles' ) );

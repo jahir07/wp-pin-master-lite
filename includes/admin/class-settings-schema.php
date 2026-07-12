@@ -1,4 +1,10 @@
 <?php
+/**
+ * Settings schema and sanitization.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Admin;
 
 use Pin_Master\Options;
@@ -36,7 +42,13 @@ class Settings_Schema {
 		$defaults = Options::defaults();
 
 		$cpt_choices = array();
-		foreach ( get_post_types( array( 'public' => true, '_builtin' => false ), 'objects' ) as $cpt ) {
+		foreach ( get_post_types(
+			array(
+				'public'   => true,
+				'_builtin' => false,
+			),
+			'objects'
+		) as $cpt ) {
 			$cpt_choices[ $cpt->name ] = array(
 				'label' => $cpt->labels->singular_name,
 			);
@@ -378,7 +390,15 @@ class Settings_Schema {
 					break;
 
 				case 'box':
-					$box          = wp_parse_args( (array) $value, array( 'top' => 0, 'right' => 0, 'bottom' => 0, 'left' => 0 ) );
+					$box          = wp_parse_args(
+						(array) $value,
+						array(
+							'top'    => 0,
+							'right'  => 0,
+							'bottom' => 0,
+							'left'   => 0,
+						)
+					);
 					$clean[ $id ] = array(
 						'top'    => absint( $box['top'] ),
 						'right'  => absint( $box['right'] ),

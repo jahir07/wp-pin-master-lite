@@ -1,17 +1,19 @@
 <?php
 /**
  * Plugin Name:       WP Pin Master
- * Plugin URI:        https://www.codextune.com/wp-pin-master
+ * Plugin URI:        https://www.xstheme.com/wp-pin-master/
  * Description:       Pinterest "Pin It" buttons on your images — hover to pin, follow buttons, and board widgets.
  * Version:           2.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Author:            codextune.com
- * Author URI:        https://www.codextune.com/
+ * Author:            xstheme
+ * Author URI:        https://www.xstheme.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wp-pin-master
  * Domain Path:       /languages
+ *
+ * @package Pin_Master
  */
 
 namespace Pin_Master;

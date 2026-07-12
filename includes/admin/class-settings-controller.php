@@ -1,4 +1,10 @@
 <?php
+/**
+ * Settings REST controller.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Admin;
 
 use Pin_Master\Options;

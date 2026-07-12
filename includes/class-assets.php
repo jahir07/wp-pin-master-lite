@@ -1,4 +1,10 @@
 <?php
+/**
+ * Frontend asset registration.
+ *
+ * @package Pin_Master
+ */
+
 namespace Pin_Master\Classes;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Assets {
 
+	/**
+	 * Hook registration.
+	 */
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register' ), 5 );
 	}
@@ -39,6 +48,18 @@ class Assets {
 			PIN_MASTER_BUILD . '/style-frontend.css',
 			array(),
 			$asset['version']
+		);
+
+		// Pinterest's official embed script, used by the widgets.
+		wp_register_script(
+			'pin-master-pinit',
+			'https://assets.pinterest.com/js/pinit.js',
+			array(),
+			PIN_MASTER_VERSION,
+			array(
+				'in_footer' => true,
+				'strategy'  => 'async',
+			)
 		);
 	}
 }

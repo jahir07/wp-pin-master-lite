@@ -1,44 +1,150 @@
 // WP Pin Master — settings app styles.
 
+$brand: #e60023;
+$brand-dark: #ad081b;
+$text: #1e1e2d;
+$text-soft: #667085;
+$border: #e4e7ec;
+$bg-soft: #f8f9fb;
+
 .pin-master-settings-wrap {
-	margin: 20px 20px 0 2px;
+	margin: 0 20px 0 0;
 }
 
 .pin-master-app {
-	max-width: 900px;
+	max-width: 1080px;
+	margin: 24px auto 48px;
+	color: $text;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
 }
+
+/* ---------- Header ---------- */
 
 .pin-master-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
-	margin-bottom: 16px;
+	padding: 20px 28px;
+	margin-bottom: 20px;
+	background: #fff;
+	border: 1px solid $border;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.pin-master-brand {
+	display: flex;
+	align-items: center;
+	gap: 14px;
 
 	h1 {
 		margin: 0;
-		font-size: 23px;
-		font-weight: 400;
+		padding: 0;
+		font-size: 22px;
+		font-weight: 600;
+		letter-spacing: -0.02em;
+		color: $text;
 	}
+}
+
+.pin-master-brand-mark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 12px;
+	background: linear-gradient(135deg, $brand 0%, $brand-dark 100%);
+	color: #fff;
+	font-family: Georgia, serif;
+	font-size: 24px;
+	font-weight: 700;
+	box-shadow: 0 4px 10px rgba(230, 0, 35, 0.25);
+}
+
+.pin-master-version {
+	display: inline-block;
+	margin-left: 2px;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: $bg-soft;
+	border: 1px solid $border;
+	color: $text-soft;
+	font-size: 11px;
+	font-weight: 500;
 }
 
 .pin-master-header-actions {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 10px;
+
+	.components-button.is-primary {
+		background: $brand;
+		border-radius: 8px;
+		padding: 0 20px;
+		height: 40px;
+
+		&:hover:not(:disabled) {
+			background: $brand-dark;
+		}
+	}
+
+	.components-button.is-tertiary {
+		color: $text-soft;
+
+		&:hover:not(:disabled) {
+			color: $brand;
+			background: rgba(230, 0, 35, 0.04);
+		}
+	}
 }
 
-.pin-master-loading {
-	display: flex;
-	justify-content: center;
-	padding: 60px 0;
+/* ---------- Tabs ---------- */
+
+.pin-master-tabs {
+	.components-tab-panel__tabs {
+		gap: 4px;
+		margin-bottom: 0;
+		border-bottom: 1px solid $border;
+	}
+
+	.components-tab-panel__tabs-item {
+		font-size: 14px;
+		font-weight: 500;
+		color: $text-soft;
+		padding: 0 18px;
+		height: 48px;
+
+		&:hover {
+			color: $text;
+		}
+
+		&.is-active {
+			color: $brand;
+			box-shadow: inset 0 -3px 0 0 $brand;
+			font-weight: 600;
+		}
+
+		&:focus-visible {
+			box-shadow: inset 0 -3px 0 0 $brand, 0 0 0 1.5px $brand;
+		}
+	}
 }
+
+/* ---------- Tab body / cards ---------- */
 
 .pin-master-tab-body {
-	margin-top: 16px;
+	margin-top: 24px;
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 260px;
-	gap: 16px;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: 24px;
 	align-items: start;
 
 	> .components-card {
@@ -50,59 +156,130 @@
 	}
 }
 
+.pin-master-app .components-card {
+	border: 1px solid $border;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+
+	.components-card__body {
+		padding: 32px;
+	}
+}
+
+/* ---------- Fields ---------- */
+
 .pin-master-fields {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 32px;
 }
 
 .pin-master-field {
 	position: relative;
+	max-width: 560px;
+
+	.components-base-control__label,
+	.components-input-control__label {
+		font-size: 13px;
+		font-weight: 600;
+		text-transform: none;
+		color: $text;
+		margin-bottom: 6px;
+	}
+
+	.components-select-control__input,
+	.components-text-control__input {
+		border-radius: 8px;
+		border-color: #d0d5dd;
+		min-height: 40px;
+		font-size: 14px;
+
+		&:focus {
+			border-color: $brand;
+			box-shadow: 0 0 0 1px $brand;
+		}
+	}
+
+	.components-base-control__help {
+		font-size: 13px;
+		color: $text-soft;
+		margin-top: 6px;
+	}
 }
 
 .pin-master-field-label {
 	display: block;
-	font-size: 11px;
-	font-weight: 500;
+	font-size: 13px;
+	font-weight: 600;
 	line-height: 1.4;
-	text-transform: uppercase;
+	color: $text;
 	margin-bottom: 8px;
 	padding: 0;
 }
 
 .pin-master-field-help {
-	margin: 4px 0 8px;
-	font-size: 12px;
-	color: #757575;
+	margin: -2px 0 12px;
+	font-size: 13px;
+	color: $text-soft;
 }
 
 .pin-master-pro-badge {
 	position: absolute;
-	top: 0;
+	top: -2px;
 	right: 0;
 	z-index: 1;
-	background: #e60023;
+	background: $brand;
 	color: #fff;
 	font-size: 10px;
-	font-weight: 600;
-	letter-spacing: 0.4px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
 	text-transform: uppercase;
-	border-radius: 3px;
-	padding: 2px 6px;
+	border-radius: 999px;
+	padding: 3px 10px;
 }
+
+/* Multiselect checkbox groups */
+
+.pin-master-field-multiselect {
+	border: 1px solid $border;
+	border-radius: 10px;
+	padding: 18px 20px;
+	background: $bg-soft;
+
+	.pin-master-field-label {
+		margin-bottom: 4px;
+	}
+
+	.components-checkbox-control {
+		padding: 5px 0;
+	}
+
+	.components-checkbox-control__label {
+		font-size: 13.5px;
+		color: $text;
+	}
+}
+
+/* Box (margin) field */
 
 .pin-master-field-box-inputs {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 8px;
-	max-width: 360px;
+	gap: 12px;
+	max-width: 420px;
 }
+
+/* Color rows */
 
 .pin-master-field-color {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 360px;
+	max-width: 420px;
+	padding: 10px 14px;
+	border: 1px solid $border;
+	border-radius: 10px;
+	background: #fff;
 
 	.pin-master-field-label {
 		margin-bottom: 0;
@@ -112,46 +289,201 @@
 .pin-master-color-toggle {
 	display: inline-flex;
 	align-items: center;
-	gap: 8px;
+	gap: 10px;
+	border-radius: 8px;
+
+	code {
+		background: $bg-soft;
+		border-radius: 6px;
+		padding: 2px 8px;
+		font-size: 12px;
+		color: $text-soft;
+	}
+
+	.component-color-indicator {
+		width: 22px;
+		height: 22px;
+		border-radius: 6px;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+	}
 }
+
+/* ---------- Loading ---------- */
+
+.pin-master-loading {
+	display: flex;
+	justify-content: center;
+	padding: 80px 0;
+}
+
+/* ---------- Live preview ---------- */
 
 .pin-master-preview {
 	position: sticky;
-	top: 48px;
+	top: 60px;
+	background: #fff;
+	border: 1px solid $border;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+	padding: 20px;
+
+	.pin-master-field-label {
+		font-size: 13px;
+		margin-bottom: 12px;
+	}
+
+	.pin-master-field-help {
+		margin: 10px 0 0;
+	}
 }
 
 .pin-master-preview-stage {
 	position: relative;
-	height: 200px;
-	border-radius: 4px;
+	height: 220px;
+	border-radius: 10px;
 	background:
-		linear-gradient(45deg, #ddd 25%, transparent 25%, transparent 75%, #ddd 75%),
-		linear-gradient(45deg, #ddd 25%, #f5f5f5 25%, #f5f5f5 75%, #ddd 75%);
+		linear-gradient(45deg, #e9ecf1 25%, transparent 25%, transparent 75%, #e9ecf1 75%),
+		linear-gradient(45deg, #e9ecf1 25%, #f6f7f9 25%, #f6f7f9 75%, #e9ecf1 75%);
 	background-size: 20px 20px;
 	background-position: 0 0, 10px 10px;
-	border: 1px solid #ccc;
+	border: 1px solid $border;
 	overflow: hidden;
 }
 
-.pin-master-upsell-list {
-	list-style: disc;
-	padding-left: 20px;
+/* ---------- Pro / upsell tab ---------- */
 
-	li {
-		margin-bottom: 6px;
+.pin-master-upsell-hero {
+	text-align: center;
+	padding: 8px 0 24px;
+
+	h2 {
+		font-size: 24px;
+		font-weight: 600;
+		margin: 0 0 8px;
+		letter-spacing: -0.02em;
+	}
+
+	p {
+		color: $text-soft;
+		font-size: 14px;
+		margin: 0;
 	}
 }
 
+.pin-master-compare {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid $border;
+	border-radius: 12px;
+	overflow: hidden;
+	font-size: 14px;
+
+	th,
+	td {
+		padding: 13px 20px;
+		text-align: center;
+		border-bottom: 1px solid $border;
+	}
+
+	th:first-child,
+	td:first-child {
+		text-align: left;
+		color: $text;
+	}
+
+	thead th {
+		background: $bg-soft;
+		font-size: 13px;
+		font-weight: 600;
+		color: $text-soft;
+	}
+
+	thead th.pin-master-compare-pro {
+		background: $brand;
+		color: #fff;
+	}
+
+	td.pin-master-compare-pro {
+		background: rgba(230, 0, 35, 0.03);
+	}
+
+	tbody tr:last-child td {
+		border-bottom: none;
+	}
+
+	.pm-yes {
+		color: #12855f;
+		font-weight: 700;
+	}
+
+	.pm-no {
+		color: #c6c9d0;
+	}
+}
+
+.pin-master-upsell-cta {
+	text-align: center;
+	margin-top: 28px;
+
+	.components-button.is-primary {
+		background: $brand;
+		border-radius: 8px;
+		height: 44px;
+		padding: 0 32px;
+		font-size: 14px;
+		font-weight: 600;
+
+		&:hover:not(:disabled) {
+			background: $brand-dark;
+		}
+	}
+
+	p {
+		margin: 10px 0 0;
+		font-size: 12.5px;
+		color: $text-soft;
+	}
+}
+
+/* ---------- Snackbar ---------- */
+
 .pin-master-snackbar {
 	position: fixed;
-	bottom: 24px;
+	bottom: 28px;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 100000;
 }
 
-@media (max-width: 960px) {
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1100px) {
 	.pin-master-tab-body {
 		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.pin-master-preview {
+		position: static;
+	}
+}
+
+@media (max-width: 782px) {
+	.pin-master-header {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 14px;
+	}
+
+	.pin-master-header-actions {
+		justify-content: flex-end;
+	}
+
+	.pin-master-app .components-card .components-card__body {
+		padding: 20px;
+	}
+
+	.pin-master-field-box-inputs {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
