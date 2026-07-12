@@ -20,6 +20,7 @@ export default class ImageFilter {
 
 	imageEligible( $img ) {
 		return (
+			! $img.attr( 'data-pin-nopin' ) &&
 			( this.enabledClasses.length === 0 ||
 				this.enabledClasses.some( ( cls ) => $img.hasClass( cls ) ) ) &&
 			! this.disabledClasses.some( ( cls ) => $img.hasClass( cls ) ) &&
