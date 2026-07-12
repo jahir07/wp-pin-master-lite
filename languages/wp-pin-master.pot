@@ -1,0 +1,508 @@
+# Copyright (C) 2026 codextune.com
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Pin Master 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pin-master\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-12T05:28:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-pin-master\n"
+
+#. Plugin Name of the plugin
+#: wp-pin-master.php
+#: includes/admin/class-settings-page.php:31
+#: includes/class-elementor.php:34
+#: build/settings.js:1
+#: src/settings/app.js:174
+msgid "WP Pin Master"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-pin-master.php
+msgid "https://www.codextune.com/wp-pin-master"
+msgstr ""
+
+#. Description of the plugin
+#: wp-pin-master.php
+msgid "Pinterest \"Pin It\" buttons on your images — hover to pin, follow buttons, and board widgets."
+msgstr ""
+
+#. Author of the plugin
+#: wp-pin-master.php
+msgid "codextune.com"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-pin-master.php
+msgid "https://www.codextune.com/"
+msgstr ""
+
+#: includes/admin/class-settings-controller.php:93
+msgid "You are not allowed to manage WP Pin Master settings."
+msgstr ""
+
+#: includes/admin/class-settings-controller.php:158
+msgid "The import file does not contain WP Pin Master settings."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:40
+msgid "Pin Master"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:48
+msgid "General"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:53
+msgid "Show Pin Button"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:54
+msgid "When the Pinterest button appears on images."
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:57
+msgid "On hover"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:59
+msgid "On touch devices"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:63
+msgid "Always visible"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:71
+msgid "Which Images"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:72
+msgid "Where the pin button is offered."
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:75
+msgid "Article area only"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:77
+msgid "Article area + sidebar"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:81
+msgid "All images on the site"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:89
+msgid "Pin Description Sources"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:90
+msgid "Ordered priority list. The first source with data becomes the Pinterest description."
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:93
+msgid "Post title"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:94
+msgid "Post excerpt"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:95
+msgid "Image title attribute"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:96
+msgid "Image description"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:97
+msgid "Image caption"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:98
+msgid "Image alt attribute"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:99
+msgid "Site title"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:101
+msgid "Pinterest description (per image)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:110
+msgid "Style"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:115
+msgid "Button Position"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:118
+msgid "Top Left"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:119
+msgid "Top Right"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:120
+msgid "Bottom Left"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:121
+msgid "Bottom Right"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:122
+msgid "Center"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:128
+msgid "Button Style"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:131
+msgid "Classic Pinterest button"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:132
+msgid "Modern button"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:134
+msgid "Icon"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:138
+msgid "Custom image"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:146
+msgid "Button Shape"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:150
+msgid "Square"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:151
+msgid "Rounded Square"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:152
+msgid "Round"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:158
+msgid "Button Width (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:166
+msgid "Button Height (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:174
+msgid "Icon Size (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:183
+msgid "Icon Color"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:190
+msgid "Background Color"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:197
+msgid "Icon Color (hover)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:204
+msgid "Background Color (hover)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:211
+msgid "Button Margin (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:218
+msgid "Advanced"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:223
+msgid "Active On"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:226
+msgid "Front page"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:227
+msgid "Blog homepage"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:228
+msgid "Single posts"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:229
+msgid "Pages"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:230
+msgid "Archives"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:231
+msgid "Search results"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:232
+msgid "Category pages"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:238
+msgid "Custom Post Types"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:246
+msgid "Minimum Image Width (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:247
+msgid "Images narrower than this never get a pin button."
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:255
+msgid "Minimum Image Height (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:263
+msgid "Minimum Image Width on Mobile (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:271
+msgid "Minimum Image Height on Mobile (px)"
+msgstr ""
+
+#: includes/admin/class-settings-schema.php:280
+#: build/settings.js:1
+#: src/settings/app.js:149
+#: src/settings/fields.js:39
+#: src/settings/fields.js:68
+msgid "Pro"
+msgstr ""
+
+#: includes/class-elementor.php:38
+msgid "No Pin"
+msgstr ""
+
+#: includes/class-elementor.php:39
+msgid "Yes Pin"
+msgstr ""
+
+#. translators: 1: required PHP version, 2: current PHP version
+#: includes/class-plugin.php:67
+#, php-format
+msgid "WP Pin Master requires PHP %1$s or newer. You are running %2$s."
+msgstr ""
+
+#: includes/class-widgets.php:16
+msgid "Pin Master: Pinterest Follower"
+msgstr ""
+
+#: includes/class-widgets.php:19
+msgid "Pinterest Follow button."
+msgstr ""
+
+#: includes/class-widgets.php:61
+msgid "Pinterest Follow"
+msgstr ""
+
+#: includes/class-widgets.php:68
+#: includes/class-widgets.php:166
+msgid "Title"
+msgstr ""
+
+#: includes/class-widgets.php:69
+#: includes/class-widgets.php:190
+msgid "Pinterest URL"
+msgstr ""
+
+#: includes/class-widgets.php:70
+msgid "Pinterest Profile Name"
+msgstr ""
+
+#: includes/class-widgets.php:92
+msgid "Pin Master: Pinterest Builder"
+msgstr ""
+
+#: includes/class-widgets.php:95
+msgid "Embed a Pinterest Pin, Board, or Profile."
+msgstr ""
+
+#: includes/class-widgets.php:155
+msgid "Pinterest Board"
+msgstr ""
+
+#: includes/class-widgets.php:170
+msgid "Widget Builder"
+msgstr ""
+
+#: includes/class-widgets.php:174
+msgid "Pin"
+msgstr ""
+
+#: includes/class-widgets.php:175
+msgid "Board"
+msgstr ""
+
+#: includes/class-widgets.php:176
+msgid "Profile"
+msgstr ""
+
+#: includes/class-widgets.php:194
+msgid "Link Text"
+msgstr ""
+
+#: includes/class-widgets.php:199
+msgid "Pinterest Board Width"
+msgstr ""
+
+#: includes/class-widgets.php:200
+msgid "Pinterest Scale Width"
+msgstr ""
+
+#: includes/class-widgets.php:201
+msgid "Pinterest Scale Height"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/fields.js:126
+msgid "Top"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/fields.js:127
+msgid "Right"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/fields.js:128
+msgid "Bottom"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/fields.js:129
+msgid "Left"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/preview.js:66
+msgid "Live Preview"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/preview.js:72
+msgid "Approximation of the pin button over an image."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:26
+msgid "WP Pin Master Pro"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:28
+msgid "Show pin buttons always or on touch devices"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:29
+msgid "Pin buttons on sidebar images or every image"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:30
+msgid "Custom button icons and images"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:31
+msgid "Per-image Pinterest descriptions"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:32
+msgid "AI-generated pin descriptions, alt text, and hashtags"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:33
+msgid "Bulk AI generation for your whole media library"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:36
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:56
+msgid "Failed to load settings."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:92
+msgid "Export failed."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:177
+msgid "Export"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:180
+msgid "Import"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:111
+msgid "Settings imported."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:114
+msgid "Import failed — is this a WP Pin Master export file?"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:70
+msgid "Settings saved."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:72
+msgid "Saving failed."
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:190
+msgid "Saving…"
+msgstr ""
+
+#: build/settings.js:1
+#: src/settings/app.js:190
+msgid "Save Changes"
+msgstr ""
