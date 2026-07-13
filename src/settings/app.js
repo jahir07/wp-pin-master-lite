@@ -102,6 +102,7 @@ export default function App() {
 	const config = window.pinMasterSettings || {};
 	const schema = config.schema || [];
 	const isPro = !! config.isPro;
+	const initialTab = new URLSearchParams( window.location.search ).get( 'tab' ) || '';
 
 	const [ values, setValues ] = useState( null );
 	const [ saving, setSaving ] = useState( false );
@@ -268,7 +269,13 @@ export default function App() {
 				</Notice>
 			) }
 
-			<TabPanel className="pin-master-tabs" tabs={ tabs }>
+			<TabPanel
+				className="pin-master-tabs"
+				tabs={ tabs }
+				initialTabName={
+					tabs.some( ( t ) => t.name === initialTab ) ? initialTab : undefined
+				}
+			>
 				{ ( { tab } ) =>
 					tab.upsell ? (
 						<UpsellTab />
