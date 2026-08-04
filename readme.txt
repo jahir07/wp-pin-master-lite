@@ -39,6 +39,7 @@ WP Pin Master adds a Pinterest "Pin It" button to the images on your site. When 
 * Custom post type targeting
 * AI-generated pin descriptions, alt text, and hashtag suggestions (bring your own API key — Anthropic Claude, OpenAI, Google Gemini, or Groq)
 * Bulk AI generation for your entire media library, processed in the background
+* Auto-publish posts to a connected Pinterest account — automatically on publish, in bulk for recent posts, or one at a time from the Posts list
 
 = Privacy =
 
