@@ -5,7 +5,7 @@ Tags: pinterest, pin it button, social sharing, images, social media
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,16 +83,5 @@ From [xstheme.com](https://www.xstheme.com/wp-pin-master-pro/).
 
 == Changelog ==
 
-= 2.0.0 =
-* Complete rebuild: modern settings screen, REST-based saving, new extension API for addons.
-* Fixed: PHP 8 compatibility, description source option was ignored, undefined variable notice in inline styles.
-* Fixed: pin button position was broken by localized numeric settings being cast to strings.
-* Security: settings endpoints now require the `manage_options` capability and REST nonces.
-
 = 1.0.0 =
-* Initial release.
-
-== Upgrade Notice ==
-
-= 2.0.0 =
-Rebuilt settings screen and options storage. Your existing settings are carried over automatically on activation.
+* Initial release: hover pin button, configurable description sources, style controls with live preview, Follow and Board widgets, Elementor No-Pin control, and a modern REST-based settings screen.
