@@ -3,7 +3,7 @@ Contributors: xstheme
 Donate link: https://www.xstheme.com/
 Tags: pinterest, pin it button, social sharing, images, social media
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -41,9 +41,14 @@ WP Pin Master adds a Pinterest "Pin It" button to the images on your site. When 
 * Bulk AI generation for your entire media library, processed in the background
 * Auto-publish posts to a connected Pinterest account — automatically on publish, in bulk for recent posts, or one at a time from the Posts list
 
-= Privacy =
+= External services =
 
-WP Pin Master itself does not send any data to third-party services. The pin button links to Pinterest's own pin-creation page, and the optional Follow/Board widgets load Pinterest's official embed script (`assets.pinterest.com/js/pinit.js`) only when you add one of those widgets. No data is sent to Pinterest, or anywhere else, until a visitor actually clicks a pin button.
+This plugin connects to **Pinterest** in two situations. Nothing is sent to Pinterest, or anywhere else, on page load or in the background.
+
+* **Pin button** — when a visitor clicks a pin button, their browser opens Pinterest's pin-creation page (`pinterest.com/pin/create/bookmarklet/`). The URL carries the current page's address, the image URL, and the pin description. This happens only on that click.
+* **Follow and Board/Pin/Profile widgets** — if you add one of these widgets, Pinterest's official embed script (`https://assets.pinterest.com/js/pinit.js`) is loaded on pages showing it, so Pinterest can render the widget. Pinterest receives the visitor's standard browser request data (such as IP address and user agent) when the script loads.
+
+Pinterest's [Terms of Service](https://policy.pinterest.com/en/terms-of-service) and [Privacy Policy](https://policy.pinterest.com/en/privacy-policy) apply to these interactions.
 
 The separate Pro add-on's AI features send image and post content to the AI provider you choose, using an API key you supply, and only when you explicitly trigger a generation.
 

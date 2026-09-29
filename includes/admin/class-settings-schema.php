@@ -324,7 +324,9 @@ class Settings_Schema {
 	/**
 	 * Sanitize a raw settings array against the schema.
 	 *
-	 * Unknown keys are dropped. Pro-locked fields/choices are rejected
+	 * Unknown input keys are dropped, but keys already stored that the
+	 * schema does not define (an inactive addon's) are carried over
+	 * untouched. Pro-locked fields/choices are rejected
 	 * unless the schema filter unlocked them. Invalid values fall back to
 	 * the previously saved value (or the default).
 	 *
@@ -416,6 +418,14 @@ class Settings_Schema {
 					$clean[ $id ] = sanitize_text_field( (string) $value );
 					break;
 			}
+		}
+
+		// Keep stored keys the current schema does not know about. They
+		// belong to an addon that is inactive right now (e.g. Pro while it
+		// is being updated); saving here must not wipe that addon's setup.
+		$stored = get_option( PIN_MASTER_OPTION );
+		if ( is_array( $stored ) ) {
+			$clean += array_diff_key( $stored, $fields );
 		}
 
 		/**
