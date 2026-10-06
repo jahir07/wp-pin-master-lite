@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       WP Pin Master
- * Plugin URI:        https://www.xstheme.com/wp-pin-master/
+ * Plugin URI:        https://www.xstheme.com/wp-pin-master-pro/
  * Description:       Pinterest "Pin It" buttons on your images — hover to pin, follow buttons, and board widgets.
  * Version:           1.0.0
  * Requires at least: 6.0
