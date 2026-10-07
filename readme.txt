@@ -1,5 +1,5 @@
 === WP Pin Master ===
-Contributors: xstheme
+Contributors: xstheme, mamun3d
 Donate link: https://www.xstheme.com/
 Tags: pinterest, pin it button, social sharing, images, social media
 Requires at least: 6.0
